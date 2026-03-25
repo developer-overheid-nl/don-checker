@@ -1,0 +1,60 @@
+diff --git a/dist/cjs/codegen/fallback.js b/dist/cjs/codegen/fallback.js
+index 1b438e5a92b6a64edf31cc189d119622861ac1d3..dee61eed71efaf8b77b8ee0ab924e19b38f5eca6 100644
+--- a/dist/cjs/codegen/fallback.js
++++ b/dist/cjs/codegen/fallback.js
+@@ -58,9 +58,7 @@ class Fallback {
+ 
+     const id = builders.identifier('fallback');
+     const args = Array.from(this.#deps.keys());
+-    tree.push(builders.variableDeclaration('const', [builders.variableDeclarator(id, builders.callExpression(builders.memberExpression(builders.callExpression(builders.identifier('Function'), [builders.templateLiteral([builders.templateElement({
+-      raw: `return ${this.extraCode}`
+-    })], [])]), builders.identifier('call')), [builders.objectExpression(args.map(arg => builders.objectProperty(builders.stringLiteral(arg), safeIdentifier(arg))))]))]), 'program');
++    tree.push(builders.variableDeclaration('const', [builders.variableDeclarator(id, builders.callExpression(builders.memberExpression(builders.callExpression(builders.identifier('Function'), [builders.stringLiteral(`return ${this.extraCode}`)]), builders.identifier('call')), [builders.objectExpression(args.map(arg => builders.objectProperty(builders.stringLiteral(arg), safeIdentifier(arg))))]))]), 'program');
+     return id;
+   }
+ 
+diff --git a/dist/esm/codegen/fallback.mjs b/dist/esm/codegen/fallback.mjs
+index 536584644352a8e058b173bc7418249f64cd34a7..5d0179783dda54b171edc803397b665e08bfb6d6 100644
+--- a/dist/esm/codegen/fallback.mjs
++++ b/dist/esm/codegen/fallback.mjs
+@@ -54,9 +54,7 @@ class Fallback {
+ 
+     const id = identifier('fallback');
+     const args = Array.from(this.#deps.keys());
+-    tree.push(variableDeclaration('const', [variableDeclarator(id, callExpression(memberExpression(callExpression(identifier('Function'), [templateLiteral([templateElement({
+-      raw: `return ${this.extraCode}`
+-    })], [])]), identifier('call')), [objectExpression(args.map(arg => objectProperty(stringLiteral(arg), safeIdentifier(arg))))]))]), 'program');
++    tree.push(variableDeclaration('const', [variableDeclarator(id, callExpression(memberExpression(callExpression(identifier('Function'), [stringLiteral(`return ${this.extraCode}`)]), identifier('call')), [objectExpression(args.map(arg => objectProperty(stringLiteral(arg), safeIdentifier(arg))))]))]), 'program');
+     return id;
+   }
+ 
+diff --git a/dist/legacy/cjs/codegen/fallback.js b/dist/legacy/cjs/codegen/fallback.js
+index 9099ca96779959b2314a8ba9e7abb6f8ebc4fa83..5fe2dc44c5d3ad8375458d6ac3414c8d4e93946e 100644
+--- a/dist/legacy/cjs/codegen/fallback.js
++++ b/dist/legacy/cjs/codegen/fallback.js
+@@ -85,9 +85,7 @@ class Fallback {
+ 
+     const id = builders.identifier('fallback');
+     const args = Array.from(_rollupPluginBabelHelpers.classPrivateFieldGet(this, _deps).keys());
+-    tree.push(builders.variableDeclaration('const', [builders.variableDeclarator(id, builders.callExpression(builders.memberExpression(builders.callExpression(builders.identifier('Function'), [builders.templateLiteral([builders.templateElement({
+-      raw: `return ${this.extraCode}`
+-    })], [])]), builders.identifier('call')), [builders.objectExpression(args.map(arg => builders.objectProperty(builders.stringLiteral(arg), safeIdentifier(arg))))]))]), 'program');
++    tree.push(builders.variableDeclaration('const', [builders.variableDeclarator(id, builders.callExpression(builders.memberExpression(builders.callExpression(builders.identifier('Function'), [builders.stringLiteral(`return ${this.extraCode}`)]), builders.identifier('call')), [builders.objectExpression(args.map(arg => builders.objectProperty(builders.stringLiteral(arg), safeIdentifier(arg))))]))]), 'program');
+     return id;
+   }
+ 
+diff --git a/dist/legacy/esm/codegen/fallback.mjs b/dist/legacy/esm/codegen/fallback.mjs
+index ef28b9364b517e8828e014c5dccb3defd60f2760..7aaaea4e85c7e3f3ba2f53482309f342b3812235 100644
+--- a/dist/legacy/esm/codegen/fallback.mjs
++++ b/dist/legacy/esm/codegen/fallback.mjs
+@@ -81,9 +81,7 @@ class Fallback {
+ 
+     const id = identifier('fallback');
+     const args = Array.from(_classPrivateFieldGet(this, _deps).keys());
+-    tree.push(variableDeclaration('const', [variableDeclarator(id, callExpression(memberExpression(callExpression(identifier('Function'), [templateLiteral([templateElement({
+-      raw: `return ${this.extraCode}`
+-    })], [])]), identifier('call')), [objectExpression(args.map(arg => objectProperty(stringLiteral(arg), safeIdentifier(arg))))]))]), 'program');
++    tree.push(variableDeclaration('const', [variableDeclarator(id, callExpression(memberExpression(callExpression(identifier('Function'), [stringLiteral(`return ${this.extraCode}`)]), identifier('call')), [objectExpression(args.map(arg => objectProperty(stringLiteral(arg), safeIdentifier(arg))))]))]), 'program');
+     return id;
+   }
+ 
