@@ -1,6 +1,6 @@
 {
   "name": "@developer-overheid-nl/don-checker",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "packageManager": "pnpm@10.33.0",
   "license": "EUPL-1.2",
   "repository": {
@@ -27,8 +27,8 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@geonovum/standards-checker": "1.0.2",
-    "@geonovum/standards-checker-ui": "1.0.2"
+    "@geonovum/standards-checker": "1.0.4",
+    "@geonovum/standards-checker-ui": "1.0.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.2",
