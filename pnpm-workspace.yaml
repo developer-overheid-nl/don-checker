@@ -1,2 +1,0 @@
-patchedDependencies:
-  nimma@0.2.3: patches/nimma@0.2.3.patch

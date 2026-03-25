@@ -4,21 +4,16 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  nimma@0.2.3:
-    hash: 05a72e348ecd46b06c901bf34b826597ce94d615fd38bbd7055e01652447f456
-    path: patches/nimma@0.2.3.patch
-
 importers:
 
   .:
     dependencies:
       '@geonovum/standards-checker':
-        specifier: 1.0.1
-        version: 1.0.1
+        specifier: 1.0.2
+        version: 1.0.2
       '@geonovum/standards-checker-ui':
-        specifier: 1.0.1
-        version: 1.0.1(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.3)(@codemirror/search@6.6.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.40.0)(@geonovum/standards-checker@1.0.1)(codemirror@6.0.2)(eslint@10.1.0(jiti@2.6.1))(immer@9.0.21)(prettier@3.8.1)(rollup@4.60.0)(typescript@5.9.3)(vite@8.0.2(@types/node@25.5.0)(esbuild@0.27.4)(jiti@2.6.1))
+        specifier: 1.0.2
+        version: 1.0.2(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.3)(@codemirror/search@6.6.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.40.0)(@geonovum/standards-checker@1.0.2)(codemirror@6.0.2)(eslint@10.1.0(jiti@2.6.1))(immer@9.0.21)(prettier@3.8.1)(rollup@4.60.0)(typescript@5.9.3)(vite@8.0.2(@types/node@25.5.0)(esbuild@0.27.4)(jiti@2.6.1))
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4.2.2
@@ -393,13 +388,13 @@ packages:
     resolution: {integrity: sha512-iH1B076HoAshH1mLpHMgwdGeTs0CYwL0SPMkGuSebZrwBp16v415e9NZXg2jtrqPVQjf6IANe2Vtlr5KswtcZQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@geonovum/standards-checker-ui@1.0.1':
-    resolution: {integrity: sha512-AmPyMLVu+krLsyyB0qtHnFj/G9Hh58Nas+mn83BuZ2WtXZy6yreKQ7eXlJLGgv5BKqS+krdoR0LxUf+wzYKZgQ==}
+  '@geonovum/standards-checker-ui@1.0.2':
+    resolution: {integrity: sha512-Y0Q7TyS7rOeb2oE5rNaMDwkMbnRxsvFtLaWEKvt3XsUQTZIxJxVIFQlChb8oFX8+wspbqlJwacmwpZ5ZYhuwFA==}
     peerDependencies:
       '@geonovum/standards-checker': ^1.0.0-beta.1
 
-  '@geonovum/standards-checker@1.0.1':
-    resolution: {integrity: sha512-hg5jg2TwdilbE9Hfqo7hVXXxeDD6rD81UNlZpZw9wfKH2CdyTcOCYDrYtO+zNZ5Q0z3D2SAU4PMoeJs9H+euUQ==}
+  '@geonovum/standards-checker@1.0.2':
+    resolution: {integrity: sha512-SaGch+FHw1hio6SbAstWgnU4NjUlwP89+dfoojiAXeWiJzgeiuRxEsEVKxRauwBlnn+10+MvlsJb3P4QsXnqZQ==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1834,8 +1829,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-react@0.577.0:
-    resolution: {integrity: sha512-4LjoFv2eEPwYDPg/CUdBJQSDfPyzXCRrVW1X7jrx/trgxnxkHFjnVZINbzvzxjN70dxychOfg+FTYwBiS3pQ5A==}
+  lucide-react@1.7.0:
+    resolution: {integrity: sha512-yI7BeItCLZJTXikmK4KNUGCKoGzSvbKlfCvw44bU4fXAL6v3gYS4uHD1jzsLkfwODYwI6Drw5Tu9Z5ulDe0TSg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -2785,12 +2780,12 @@ snapshots:
       '@eslint/core': 1.1.1
       levn: 0.4.1
 
-  '@geonovum/standards-checker-ui@1.0.1(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.3)(@codemirror/search@6.6.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.40.0)(@geonovum/standards-checker@1.0.1)(codemirror@6.0.2)(eslint@10.1.0(jiti@2.6.1))(immer@9.0.21)(prettier@3.8.1)(rollup@4.60.0)(typescript@5.9.3)(vite@8.0.2(@types/node@25.5.0)(esbuild@0.27.4)(jiti@2.6.1))':
+  '@geonovum/standards-checker-ui@1.0.2(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.3)(@codemirror/search@6.6.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.40.0)(@geonovum/standards-checker@1.0.2)(codemirror@6.0.2)(eslint@10.1.0(jiti@2.6.1))(immer@9.0.21)(prettier@3.8.1)(rollup@4.60.0)(typescript@5.9.3)(vite@8.0.2(@types/node@25.5.0)(esbuild@0.27.4)(jiti@2.6.1))':
     dependencies:
       '@codemirror/lang-json': 6.0.2
       '@codemirror/lint': 6.9.5
       '@eslint/js': 10.0.1(eslint@10.1.0(jiti@2.6.1))
-      '@geonovum/standards-checker': 1.0.1
+      '@geonovum/standards-checker': 1.0.2
       '@modyfi/vite-plugin-yaml': 1.1.1(rollup@4.60.0)(vite@8.0.2(@types/node@25.5.0)(esbuild@0.27.4)(jiti@2.6.1))
       '@stoplight/spectral-core': 1.21.0
       '@stoplight/spectral-parsers': 1.0.5
@@ -2803,7 +2798,7 @@ snapshots:
       eslint-plugin-react-hooks: 7.0.1(eslint@10.1.0(jiti@2.6.1))
       eslint-plugin-react-refresh: 0.5.2(eslint@10.1.0(jiti@2.6.1))
       globals: 17.4.0
-      lucide-react: 0.577.0(react@19.2.4)
+      lucide-react: 1.7.0(react@19.2.4)
       ramda: 0.32.0
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
@@ -2831,7 +2826,7 @@ snapshots:
       - use-sync-external-store
       - vite
 
-  '@geonovum/standards-checker@1.0.1':
+  '@geonovum/standards-checker@1.0.2':
     dependencies:
       '@stoplight/better-ajv-errors': 1.0.3(ajv@8.18.0)
       '@stoplight/json-ref-readers': 1.2.2
@@ -3131,7 +3126,7 @@ snapshots:
       lodash: 4.17.23
       lodash.topath: 4.5.2
       minimatch: 3.1.2
-      nimma: 0.2.3(patch_hash=05a72e348ecd46b06c901bf34b826597ce94d615fd38bbd7055e01652447f456)
+      nimma: 0.2.3
       pony-cause: 1.1.1
       simple-eval: 1.0.1
       tslib: 2.8.1
@@ -4322,7 +4317,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-react@0.577.0(react@19.2.4):
+  lucide-react@1.7.0(react@19.2.4):
     dependencies:
       react: 19.2.4
 
@@ -4346,7 +4341,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  nimma@0.2.3(patch_hash=05a72e348ecd46b06c901bf34b826597ce94d615fd38bbd7055e01652447f456):
+  nimma@0.2.3:
     dependencies:
       '@jsep-plugin/regex': 1.0.4(jsep@1.4.0)
       '@jsep-plugin/ternary': 1.1.4(jsep@1.4.0)
