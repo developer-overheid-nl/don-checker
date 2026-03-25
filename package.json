@@ -1,0 +1,33 @@
+{
+  "name": "@developer-overheid-nl/don-checker",
+  "version": "1.0.0-beta.1",
+  "license": "EUPL-1.2",
+  "type": "module",
+  "bin": {
+    "don-checker": "./dist/cli.mjs"
+  },
+  "scripts": {
+    "dev": "vite --open",
+    "build": "tsc -b && pnpm run build:cli && vite build",
+    "build:cli": "tsdown src/cli.ts --format esm --platform node --sourcemap --out-dir dist --clean",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@geonovum/standards-checker": "1.0.1",
+    "@geonovum/standards-checker-ui": "1.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "eslint": "^10.1.0",
+    "postcss": "^8.5.8",
+    "prettier": "^3.8.1",
+    "tailwindcss": "^4.2.2",
+    "tsdown": "^0.21.5",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vitest": "^4.1.1"
+  }
+}
