@@ -76,4 +76,4 @@ pnpm install
 
 ## License
 
-[EUPL-1.2](LICENSE.md)
+[EUPL-1.2](LICENSE)
