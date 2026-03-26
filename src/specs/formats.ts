@@ -28,3 +28,22 @@ export const oas3_0: FormatFn = document => {
 };
 
 (oas3_0 as FormatFn & { displayName?: string }).displayName = 'OpenAPI 3.0.x';
+
+const isPubliccodeDocument = (document: unknown): document is { publiccodeYmlVersion: unknown } => {
+  if (!isPlainObject(document) || !('publiccodeYmlVersion' in document)) {
+    return false;
+  }
+
+  return true;
+};
+
+export const publiccode05: FormatFn = document => {
+  if (!isPubliccodeDocument(document)) {
+    return false;
+  }
+
+  const version = String((document as { publiccodeYmlVersion: unknown }).publiccodeYmlVersion);
+  return /^0\.?5?(\.0)?$/.test(version) || /^0(\.\d+)*$/.test(version);
+};
+
+(publiccode05 as FormatFn & { displayName?: string }).displayName = 'publiccode.yml';
