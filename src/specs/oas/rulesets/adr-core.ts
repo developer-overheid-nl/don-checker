@@ -1,14 +1,20 @@
 import type { RulesetDefinition } from '@geonovum/standards-checker/spectral/core';
 import { casing, pattern, schema, truthy } from '@geonovum/standards-checker/spectral/functions';
-import { oas3_0 } from '../../formats';
+import oasModule from '@stoplight/spectral-rulesets/dist/oas';
+import { oas3_0, oas3_1 } from '../../formats';
 import { or } from '../../functions';
+import { oasValidationRules } from '../../rules/oas-validation';
+
+const oasRuleset = (oasModule as { default?: RulesetDefinition }).default ?? oasModule;
 
 export const ADR_URI = 'https://logius-standaarden.github.io/API-Design-Rules';
 
 const adrCore: RulesetDefinition = {
   description: 'NLGov REST API Design Rules',
-  formats: [oas3_0],
+  extends: [[oasRuleset as RulesetDefinition, 'off']],
+  formats: [oas3_0, oas3_1],
   rules: {
+    ...oasValidationRules,
     // /core/version-header
     'missing-version-header': {
       severity: 'error',
