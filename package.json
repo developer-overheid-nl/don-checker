@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "@geonovum/standards-checker": "1.0.4",
-    "@geonovum/standards-checker-ui": "1.0.4"
+    "@geonovum/standards-checker-ui": "1.0.4",
+    "@stoplight/spectral-rulesets": "^1.22.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.2",

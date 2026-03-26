@@ -1,13 +1,19 @@
 import type { RulesetDefinition } from '@geonovum/standards-checker/spectral/core';
 import { pattern, schema } from '@geonovum/standards-checker/spectral/functions';
-import { oas3_0 } from '../../formats';
+import oasModule from '@stoplight/spectral-rulesets/dist/oas';
+import { oas3_0, oas3_1 } from '../../formats';
+import { oasValidationRules } from '../../rules/oas-validation';
+
+const oasRuleset = (oasModule as { default?: RulesetDefinition }).default ?? oasModule;
 
 export const ADR_URI = 'https://logius-standaarden.github.io/API-Design-Rules/consult';
 
 const adrConsult: RulesetDefinition = {
   description: 'NLGov REST API Design Rules - Consult',
-  formats: [oas3_0],
+  extends: [[oasRuleset as RulesetDefinition, 'off']],
+  formats: [oas3_0, oas3_1],
   rules: {
+    ...oasValidationRules,
     // /core/date-time/timezone
     'nlgov:date-time-ensure-timezone': {
       severity: 'error',
