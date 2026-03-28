@@ -142,7 +142,7 @@ const adrCore: RulesetDefinition = {
       then: {
         function: pattern,
         functionOptions: {
-          match: '^(\\/|(\\/_[a-z]+|\\/(([a-z\\-]+|{[a-z]+})(\\/([a-z\\-\\.]+|{[a-z]+}))*)(\\/_[a-z]+)?)\\/?)$',
+          match: '^(\\/|(\\/_[a-z0-9]+|\\/(([a-z0-9\\-]+|{[^}]+})(\\/([a-z0-9\\-\\.]+|{[^}]+}))*)(\\/_[a-z]+)?)\\/?)$'
         },
       },
     },
