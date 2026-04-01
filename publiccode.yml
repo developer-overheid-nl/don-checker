@@ -1,0 +1,59 @@
+publiccodeYmlVersion: "0.5"
+name: DON Checker
+url: https://github.com/developer-overheid-nl/don-checker
+landingURL: https://developer-overheid-nl.github.io/don-checker/
+softwareType: standalone/web
+
+platforms:
+  - web
+
+categories:
+  - it-development
+
+developmentStatus: stable
+
+intendedAudience:
+  countries:
+    - NL
+  scope:
+    - government
+
+description:
+  nl:
+    shortDescription: >-
+      Valideert OpenAPI-specificaties tegen de Nederlandse API
+      Design Rules.
+
+    longDescription: |
+      DON Checker is een tool die OpenAPI-specificaties
+      valideert aan de hand van de Nederlandse API Design
+      Rules. De tool is beschikbaar als CLI-tool (via npx),
+      als npm-package en als webapplicatie. Gebruikers kunnen
+      een lokaal bestand, een URL of standaardinvoer opgeven
+      als invoer. De checker ondersteunt meerdere rulesets
+      zoals adr-20, adr-21 en adr-consult, en biedt uitvoer
+      als tabel of JSON. De webdemo is beschikbaar via GitHub
+      Pages.
+
+    features:
+      - Validatie van OpenAPI-specificaties tegen de Nederlandse API Design Rules
+      - Ondersteuning voor meerdere rulesets (adr-20, adr-21, adr-consult)
+      - Beschikbaar als CLI-tool, npm-package en webapplicatie
+      - Uitvoer als tabel of JSON
+
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: Geonovum
+
+localisation:
+  localisationReady: false
+  availableLanguages:
+    - nl
+
+maintenance:
+  type: internal
+
+  contacts:
+    - name: developer.overheid.nl
+      email: developer.overheid@geonovum.nl
+      affiliation: Geonovum
