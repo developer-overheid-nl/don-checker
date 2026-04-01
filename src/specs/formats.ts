@@ -47,3 +47,12 @@ export const publiccode05: FormatFn = document => {
 };
 
 (publiccode05 as FormatFn & { displayName?: string }).displayName = 'publiccode.yml';
+export const oas3_1: FormatFn = document => {
+  if (!isOas3Document(document)) {
+    return false;
+  }
+
+  return /^3\.1(?:\.[0-9]*)?$/.test(String((document as { openapi: unknown }).openapi));
+};
+
+(oas3_1 as FormatFn & { displayName?: string }).displayName = 'OpenAPI 3.1.x';

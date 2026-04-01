@@ -1,6 +1,6 @@
 {
   "name": "@developer-overheid-nl/don-checker",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
   "packageManager": "pnpm@10.33.0",
   "license": "EUPL-1.2",
   "repository": {
@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "@geonovum/standards-checker": "1.0.4",
-    "@geonovum/standards-checker-ui": "1.0.4"
+    "@geonovum/standards-checker-ui": "1.0.4",
+    "@stoplight/spectral-rulesets": "^1.22.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.2",
@@ -36,9 +37,9 @@
     "postcss": "^8.5.8",
     "prettier": "^3.8.1",
     "tailwindcss": "^4.2.2",
-    "tsdown": "^0.21.5",
+    "tsdown": "^0.21.7",
     "typescript": "^5.9.3",
-    "vite": "^8.0.2",
-    "vitest": "^4.1.1"
+    "vite": "^8.0.3",
+    "vitest": "^4.1.2"
   }
 }
