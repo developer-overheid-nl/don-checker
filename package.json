@@ -35,7 +35,7 @@
     "@tailwindcss/postcss": "^4.2.2",
     "eslint": "^10.2.0",
     "postcss": "^8.5.9",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.2",
     "tailwindcss": "^4.2.2",
     "tsdown": "^0.21.7",
     "typescript": "^5.9.3",
