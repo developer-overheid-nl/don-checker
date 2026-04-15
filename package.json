@@ -27,8 +27,8 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@geonovum/standards-checker": "1.0.6",
-    "@geonovum/standards-checker-ui": "1.0.6",
+    "@geonovum/standards-checker": "1.0.7",
+    "@geonovum/standards-checker-ui": "1.0.7",
     "@stoplight/spectral-rulesets": "^1.22.1"
   },
   "devDependencies": {
@@ -38,6 +38,7 @@
     "prettier": "^3.8.3",
     "tailwindcss": "^4.2.2",
     "tsdown": "^0.21.8",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4"
   }
 }

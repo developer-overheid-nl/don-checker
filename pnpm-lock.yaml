@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@geonovum/standards-checker':
-        specifier: 1.0.6
-        version: 1.0.6
+        specifier: 1.0.7
+        version: 1.0.7
       '@geonovum/standards-checker-ui':
-        specifier: 1.0.6
-        version: 1.0.6(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.3)(@codemirror/search@6.6.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.40.0)(@geonovum/standards-checker@1.0.6)(@types/node@25.6.0)(codemirror@6.0.2)(esbuild@0.27.4)(eslint@10.2.0(jiti@2.6.1))(immer@9.0.21)(jiti@2.6.1)(prettier@3.8.3)(rollup@4.60.0)(typescript@5.9.3)
+        specifier: 1.0.7
+        version: 1.0.7(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.3)(@codemirror/search@6.6.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.40.0)(@geonovum/standards-checker@1.0.7)(@types/node@25.6.0)(codemirror@6.0.2)(esbuild@0.27.4)(eslint@10.2.0(jiti@2.6.1))(immer@9.0.21)(jiti@2.6.1)(prettier@3.8.3)(rollup@4.60.0)(typescript@5.9.3)
       '@stoplight/spectral-rulesets':
         specifier: ^1.22.1
         version: 1.22.1
@@ -39,6 +39,9 @@ importers:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+      vitest:
+        specifier: ^4.1.4
+        version: 4.1.4(@types/node@25.6.0)(vite@8.0.8(@types/node@25.6.0)(esbuild@0.27.4)(jiti@2.6.1))
 
 packages:
 
@@ -372,14 +375,14 @@ packages:
     resolution: {integrity: sha512-ejvBr8MQCbVsWNZnCwDXjUKq40MDmHalq7cJ6e9s/qzTUFIIo/afzt1Vui9T97FM/V/pN4YsFVoed5NIa96RDg==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@geonovum/standards-checker-ui@1.0.6':
-    resolution: {integrity: sha512-pqGkEdrNFm0/qSI3MVHR20kYcNHr4J5SZc4bZ8D0OLFu+CheXWUEUfwpPgLNp6KbCrEfGLpTd9Wa4SCaNx7riQ==}
+  '@geonovum/standards-checker-ui@1.0.7':
+    resolution: {integrity: sha512-i0rdt2zTizWFcGmCZHv0FH92lCUntgI+KwY/r8pE+rAZRlsBMq8IO0YEqzQ9dV7QqTNKAdE9BV4ocNFa49gW5Q==}
     hasBin: true
     peerDependencies:
       '@geonovum/standards-checker': ^1.0.0
 
-  '@geonovum/standards-checker@1.0.6':
-    resolution: {integrity: sha512-zO7Nxse0uu2RaGpZalCobQ0ll22w82M+OtGrLNzs83/aqvSrwrJbVuocl5Jcy+h5UgvEgD3emP1BdIAGbaq26Q==}
+  '@geonovum/standards-checker@1.0.7':
+    resolution: {integrity: sha512-FAzmoCLqFrjk7biZF9GuvV6mItzmwi51c8fw/E/LGmS4j0w21vOE3mKqNUp7CySYB8QyQj6BvTFnuKyoZXYwjg==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -2764,12 +2767,12 @@ snapshots:
       '@eslint/core': 1.2.0
       levn: 0.4.1
 
-  '@geonovum/standards-checker-ui@1.0.6(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.3)(@codemirror/search@6.6.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.40.0)(@geonovum/standards-checker@1.0.6)(@types/node@25.6.0)(codemirror@6.0.2)(esbuild@0.27.4)(eslint@10.2.0(jiti@2.6.1))(immer@9.0.21)(jiti@2.6.1)(prettier@3.8.3)(rollup@4.60.0)(typescript@5.9.3)':
+  '@geonovum/standards-checker-ui@1.0.7(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.3)(@codemirror/search@6.6.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.40.0)(@geonovum/standards-checker@1.0.7)(@types/node@25.6.0)(codemirror@6.0.2)(esbuild@0.27.4)(eslint@10.2.0(jiti@2.6.1))(immer@9.0.21)(jiti@2.6.1)(prettier@3.8.3)(rollup@4.60.0)(typescript@5.9.3)':
     dependencies:
       '@codemirror/lang-json': 6.0.2
       '@codemirror/lint': 6.9.5
       '@eslint/js': 10.0.1(eslint@10.2.0(jiti@2.6.1))
-      '@geonovum/standards-checker': 1.0.6
+      '@geonovum/standards-checker': 1.0.7
       '@modyfi/vite-plugin-yaml': 1.1.1(rollup@4.60.0)(vite@8.0.8(@types/node@25.6.0)(esbuild@0.27.4)(jiti@2.6.1))
       '@stoplight/spectral-core': 1.22.0
       '@stoplight/spectral-parsers': 1.0.5
@@ -2789,7 +2792,6 @@ snapshots:
       react-router-dom: 7.14.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       typescript-eslint: 8.58.2(eslint@10.2.0(jiti@2.6.1))(typescript@5.9.3)
       vite: 8.0.8(@types/node@25.6.0)(esbuild@0.27.4)(jiti@2.6.1)
-      vitest: 4.1.4(@types/node@25.6.0)(vite@8.0.8(@types/node@25.6.0)(esbuild@0.27.4)(jiti@2.6.1))
       zustand: 5.0.12(immer@9.0.21)(react@19.2.4)
     transitivePeerDependencies:
       - '@babel/runtime'
@@ -2799,30 +2801,19 @@ snapshots:
       - '@codemirror/state'
       - '@codemirror/theme-one-dark'
       - '@codemirror/view'
-      - '@edge-runtime/vm'
-      - '@opentelemetry/api'
       - '@rolldown/plugin-babel'
       - '@types/eslint'
       - '@types/node'
       - '@types/react'
       - '@vitejs/devtools'
-      - '@vitest/browser-playwright'
-      - '@vitest/browser-preview'
-      - '@vitest/browser-webdriverio'
-      - '@vitest/coverage-istanbul'
-      - '@vitest/coverage-v8'
-      - '@vitest/ui'
       - babel-plugin-react-compiler
       - codemirror
       - encoding
       - esbuild
       - eslint
-      - happy-dom
       - immer
       - jiti
-      - jsdom
       - less
-      - msw
       - prettier
       - rollup
       - sass
@@ -2836,7 +2827,7 @@ snapshots:
       - use-sync-external-store
       - yaml
 
-  '@geonovum/standards-checker@1.0.6':
+  '@geonovum/standards-checker@1.0.7':
     dependencies:
       '@stoplight/better-ajv-errors': 1.0.3(ajv@8.18.0)
       '@stoplight/json-ref-readers': 1.2.2
