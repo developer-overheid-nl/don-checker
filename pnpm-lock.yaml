@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@geonovum/standards-checker':
-        specifier: ^1.1.0
-        version: 1.1.0(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.3)(@codemirror/search@6.7.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.41.1)(codemirror@6.0.2)(esbuild@0.28.0)(eslint@10.2.1)(immer@9.0.21)(react-dom@19.2.5(react@19.2.5))(react-router-dom@7.14.2(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react@19.2.5)(synckit@0.11.12)(typescript@6.0.3)(vite@8.0.9(@types/node@25.6.0)(esbuild@0.28.0))(vitest@4.1.5(@types/node@25.6.0)(vite@8.0.9(@types/node@25.6.0)(esbuild@0.28.0)))
+        specifier: ^1.1.1
+        version: 1.1.1(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.3)(@codemirror/search@6.7.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.41.1)(codemirror@6.0.2)(esbuild@0.28.0)(eslint@10.2.1)(immer@9.0.21)(react-dom@19.2.5(react@19.2.5))(react-router-dom@7.14.2(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react@19.2.5)(synckit@0.11.12)(typescript@6.0.3)(vite@8.0.9(@types/node@25.6.0)(esbuild@0.28.0))(vitest@4.1.5(@types/node@25.6.0)(vite@8.0.9(@types/node@25.6.0)(esbuild@0.28.0)))
       react:
         specifier: ^19.2.5
         version: 19.2.5
@@ -374,8 +374,8 @@ packages:
     resolution: {integrity: sha512-rZAP3aVgB9ds9KOeUSL+zZ21hPmo8dh6fnIFwRQj5EAZl9gzR7wxYbYXYysAM8CTqGmUGyp2S4kUdV17MnGuWQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@geonovum/standards-checker@1.1.0':
-    resolution: {integrity: sha512-s8YwfIFBSnEkcpfVUFjq6jD9b4v+/L8bYU935LUn1XW+dOXQlBhQ0FJNg2x0TNbwET6Mm9T1CPJQONX9hqcLvA==}
+  '@geonovum/standards-checker@1.1.1':
+    resolution: {integrity: sha512-dHqOjvjSe/sBx2V9XJrouEsk+ciEYbdjipXVzUJXOL/Y/QKN4D79jzMy9zR070lWaNlOIWJuc6pPQ7iM5rZhgw==}
     engines: {node: '>=20.17'}
     hasBin: true
     peerDependencies:
@@ -2632,7 +2632,7 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
-  '@geonovum/standards-checker@1.1.0(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.3)(@codemirror/search@6.7.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.41.1)(codemirror@6.0.2)(esbuild@0.28.0)(eslint@10.2.1)(immer@9.0.21)(react-dom@19.2.5(react@19.2.5))(react-router-dom@7.14.2(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react@19.2.5)(synckit@0.11.12)(typescript@6.0.3)(vite@8.0.9(@types/node@25.6.0)(esbuild@0.28.0))(vitest@4.1.5(@types/node@25.6.0)(vite@8.0.9(@types/node@25.6.0)(esbuild@0.28.0)))':
+  '@geonovum/standards-checker@1.1.1(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.3)(@codemirror/search@6.7.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.41.1)(codemirror@6.0.2)(esbuild@0.28.0)(eslint@10.2.1)(immer@9.0.21)(react-dom@19.2.5(react@19.2.5))(react-router-dom@7.14.2(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react@19.2.5)(synckit@0.11.12)(typescript@6.0.3)(vite@8.0.9(@types/node@25.6.0)(esbuild@0.28.0))(vitest@4.1.5(@types/node@25.6.0)(vite@8.0.9(@types/node@25.6.0)(esbuild@0.28.0)))':
     dependencies:
       '@codemirror/lang-json': 6.0.2
       '@codemirror/lint': 6.9.5
