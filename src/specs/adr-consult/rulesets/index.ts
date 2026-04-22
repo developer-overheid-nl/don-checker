@@ -1,4 +1,4 @@
-import { Rulesets } from '@geonovum/standards-checker-ui';
+import { Rulesets } from '@geonovum/standards-checker/ui';
 import adrConsult, { ADR_URI } from './adr-consult';
 
 const rulesets: Rulesets = {

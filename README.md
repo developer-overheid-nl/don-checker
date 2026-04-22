@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/@developer-overheid-nl/don-checker)](https://www.npmjs.com/package/@developer-overheid-nl/don-checker)
 
-Validates OpenAPI specifications against the [API Design Rules](https://logius-standaarden.github.io/API-Design-Rules/).
+Validates OpenAPI specifications against the [API Design Rules](https://logius-standaarden.github.io/API-Design-Rules/), plus `publiccode.yml` files and ADR consult documents.
 
 Built on [`@geonovum/standards-checker`](https://github.com/Geonovum/standards-checker); see its documentation for the validation engine, CLI toolkit, and web UI framework.
 
@@ -38,7 +38,7 @@ pnpm build:cli
 node dist/cli.mjs validate --ruleset adr-20 --input ./openapi.json
 ```
 
-Available rulesets: `adr-20`, `adr-21`, `adr`, `adr-consult`.
+Available rulesets: `adr-20`, `adr-21`, `adr`, `adr-consult`, `publiccode-05`.
 
 ### CLI flags
 
@@ -70,7 +70,7 @@ pnpm install
 | ---------------- | ------------------------------------------ |
 | `pnpm dev`       | Vite dev server with hot reload            |
 | `pnpm build`     | Full build: tsc + CLI bundle + vite webapp |
-| `pnpm build:cli` | Build only the CLI binary (`dist/cli.js`)  |
+| `pnpm build:cli` | Build only the CLI binary (`dist/cli.mjs`) |
 | `pnpm test`      | Vitest in watch mode                       |
 | `pnpm test run`  | Vitest single run                          |
 | `pnpm lint`      | Check for lint and formatting issues       |

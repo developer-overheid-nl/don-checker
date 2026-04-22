@@ -1,5 +1,5 @@
-import { Spec, spectralLinter } from '@geonovum/standards-checker-ui';
 import { RulesetDefinition } from '@geonovum/standards-checker/spectral/core';
+import { Spec, spectralLinter } from '@geonovum/standards-checker/ui';
 import example from './example.json';
 import rulesets from './rulesets';
 

@@ -1,5 +1,5 @@
-import { mount } from '@geonovum/standards-checker-ui';
-import './index.css';
+import '@geonovum/standards-checker/index.css';
+import { mount } from '@geonovum/standards-checker/ui';
 import specs from './specs';
 
 mount(document.getElementById('root')!, specs, {

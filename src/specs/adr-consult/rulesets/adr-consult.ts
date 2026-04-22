@@ -1,10 +1,8 @@
 import type { RulesetDefinition } from '@geonovum/standards-checker/spectral/core';
 import { pattern, schema } from '@geonovum/standards-checker/spectral/functions';
-import oasModule from '@stoplight/spectral-rulesets/dist/oas';
+import { oas as oasRuleset } from '@geonovum/standards-checker/spectral/rulesets';
 import { oas3_0, oas3_1 } from '../../formats';
 import { oasValidationRules } from '../../rules/oas-validation';
-
-const oasRuleset = (oasModule as { default?: RulesetDefinition }).default ?? oasModule;
 
 export const ADR_URI = 'https://logius-standaarden.github.io/API-Design-Rules/consult';
 
