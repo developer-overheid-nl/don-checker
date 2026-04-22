@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "vite --open",
     "build": "tsc -b && pnpm run build:cli && vite build",
-    "build:cli": "sc-build-cli src/cli.ts",
+    "build:cli": "build-cli src/cli.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
