@@ -32,7 +32,7 @@
     "@stoplight/spectral-rulesets": "^1.22.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.2.2",
+    "@tailwindcss/postcss": "^4.2.4",
     "eslint": "^10.2.1",
     "postcss": "^8.5.10",
     "prettier": "^3.8.3",
