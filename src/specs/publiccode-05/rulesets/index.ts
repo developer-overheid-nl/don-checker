@@ -1,4 +1,4 @@
-import { Rulesets } from '@geonovum/standards-checker-ui';
+import { Rulesets } from '@geonovum/standards-checker/ui';
 import publiccode, { PUBLICCODE_URI } from './publiccode';
 
 const rulesets: Rulesets = {
