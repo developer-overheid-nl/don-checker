@@ -3,9 +3,9 @@ import type { RulesetDefinition } from '@geonovum/standards-checker/spectral/cor
 import specs from './specs';
 import adr20Rulesets from './specs/adr-20/rulesets';
 import adr21Rulesets from './specs/adr-21/rulesets';
-import adrConsultRulesets from './specs/adr-consult/rulesets';
+import adr22Rulesets from './specs/adr-22/rulesets';
+import adrDraftRulesets from './specs/adr-draft/rulesets';
 import publiccode05Rulesets from './specs/publiccode-05/rulesets';
-import oasRulesets from './specs/oas/rulesets';
 
 interface PluginConfig {
   slug: string;
@@ -62,8 +62,8 @@ const buildPlugin = ({ slug, rulesets }: PluginConfig): RulesetPlugin => {
 const rulesetGroups = collectRulesetGroups(
   { slug: 'adr-20', rulesets: adr20Rulesets },
   { slug: 'adr-21', rulesets: adr21Rulesets },
-  { slug: 'adr', rulesets: oasRulesets },
-  { slug: 'adr-consult', rulesets: adrConsultRulesets },
+  { slug: 'adr-22', rulesets: adr22Rulesets },
+  { slug: 'adr-draft', rulesets: adrDraftRulesets },
   { slug: 'publiccode-05', rulesets: publiccode05Rulesets },
 );
 

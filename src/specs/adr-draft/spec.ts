@@ -5,7 +5,7 @@ import rulesets from './rulesets';
 
 const spec: Spec = {
   name: 'ADR Werkversie',
-  slug: 'adr',
+  slug: 'adr-draft',
   example: JSON.stringify(example, undefined, 2),
   linters: Object.entries(rulesets).map(([name, ruleset]) => ({
     name,

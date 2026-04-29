@@ -4,8 +4,8 @@ import example from './example.json';
 import rulesets from './rulesets';
 
 const spec: Spec = {
-  name: 'ADR Kennisplatform Consultatie 2026Q1',
-  slug: 'adr-consult',
+  name: 'ADR 2.2 (ter vaststelling)',
+  slug: 'adr-22',
   example: JSON.stringify(example, undefined, 2),
   linters: Object.entries(rulesets).map(([name, ruleset]) => ({
     name,

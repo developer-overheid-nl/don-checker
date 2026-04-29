@@ -31,6 +31,7 @@
   },
   "prettier": "@geonovum/standards-checker/prettier",
   "dependencies": {
+    "@developer-overheid-nl/adr-rulesets": "github:developer-overheid-nl/adr-rulesets#main",
     "@geonovum/standards-checker": "^1.1.4",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
@@ -43,5 +44,10 @@
     "typescript": "^6.0.3",
     "vite": "^8.0.9",
     "vitest": "^4.1.5"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@developer-overheid-nl/adr-rulesets"
+    ]
   }
 }

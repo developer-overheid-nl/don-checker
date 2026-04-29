@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@developer-overheid-nl/adr-rulesets':
+        specifier: github:developer-overheid-nl/adr-rulesets#main
+        version: https://codeload.github.com/developer-overheid-nl/adr-rulesets/tar.gz/da1327dfcc83ed130b1fe5aaa282b7bfba537aee
       '@geonovum/standards-checker':
         specifier: ^1.1.4
         version: 1.1.4(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.3)(@codemirror/search@6.7.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.41.1)(codemirror@6.0.2)(esbuild@0.28.0)(eslint@10.2.1)(immer@9.0.21)(react-dom@19.2.5(react@19.2.5))(react-router-dom@7.14.2(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react@19.2.5)(synckit@0.11.12)(typescript@6.0.3)(vite@8.0.9(@types/node@25.6.0)(esbuild@0.28.0))(vitest@4.1.5(@types/node@25.6.0)(vite@8.0.9(@types/node@25.6.0)(esbuild@0.28.0)))
@@ -166,6 +169,10 @@ packages:
 
   '@codemirror/view@6.41.1':
     resolution: {integrity: sha512-ToDnWKbBnke+ZLrP6vgTTDScGi5H37YYuZGniQaBzxMVdtCxMrslsmtnOvbPZk4RX9bvkQqnWR/WS/35tJA0qg==}
+
+  '@developer-overheid-nl/adr-rulesets@https://codeload.github.com/developer-overheid-nl/adr-rulesets/tar.gz/da1327dfcc83ed130b1fe5aaa282b7bfba537aee':
+    resolution: {tarball: https://codeload.github.com/developer-overheid-nl/adr-rulesets/tar.gz/da1327dfcc83ed130b1fe5aaa282b7bfba537aee}
+    version: 0.1.0
 
   '@emnapi/core@1.10.0':
     resolution: {integrity: sha512-yq6OkJ4p82CAfPl0u9mQebQHKPJkY7WrIuk205cTYnYe+k2Z8YBh11FrbRG/H6ihirqcacOgl2BIO8oyMQLeXw==}
@@ -2512,6 +2519,14 @@ snapshots:
       crelt: 1.0.6
       style-mod: 4.1.3
       w3c-keyname: 2.2.8
+
+  '@developer-overheid-nl/adr-rulesets@https://codeload.github.com/developer-overheid-nl/adr-rulesets/tar.gz/da1327dfcc83ed130b1fe5aaa282b7bfba537aee':
+    dependencies:
+      '@stoplight/spectral-core': 1.22.0
+      '@stoplight/spectral-functions': 1.10.2
+      '@stoplight/spectral-rulesets': 1.22.1
+    transitivePeerDependencies:
+      - encoding
 
   '@emnapi/core@1.10.0':
     dependencies:

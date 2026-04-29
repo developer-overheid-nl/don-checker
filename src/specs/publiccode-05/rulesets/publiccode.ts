@@ -1,8 +1,20 @@
 import type { RulesetDefinition } from '@geonovum/standards-checker/spectral/core';
 import { enumeration, pattern, schema, truthy } from '@geonovum/standards-checker/spectral/functions';
-import { publiccode05 } from '../../formats';
 
 export const PUBLICCODE_URI = 'https://yml.publiccode.tools/schema/0.5';
+
+type FormatFn = (document: unknown) => boolean;
+
+const isPubliccodeDocument = (document: unknown): document is { publiccodeYmlVersion: unknown } =>
+  typeof document === 'object' && document !== null && 'publiccodeYmlVersion' in document;
+
+const publiccode05: FormatFn = document => {
+  if (!isPubliccodeDocument(document)) return false;
+  const version = String(document.publiccodeYmlVersion);
+  return /^0\.?5?(\.0)?$/.test(version) || /^0(\.\d+)*$/.test(version);
+};
+
+(publiccode05 as FormatFn & { displayName?: string }).displayName = 'publiccode.yml';
 
 const CATEGORIES = [
   'accounting',
