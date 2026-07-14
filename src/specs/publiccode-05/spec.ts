@@ -4,8 +4,8 @@ import example from './example.json';
 import rulesets from './rulesets';
 
 const spec: Spec = {
-  name: 'publiccode.yml 0.5',
-  slug: 'publiccode-05',
+  name: 'publiccode.yml 0.7',
+  slug: 'publiccode-07',
   example: JSON.stringify(example, undefined, 2),
   linters: Object.entries(rulesets).map(([name, ruleset]) => ({
     name,

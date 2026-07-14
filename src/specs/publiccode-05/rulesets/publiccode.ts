@@ -1,8 +1,9 @@
 import type { RulesetDefinition } from '@geonovum/standards-checker/spectral/core';
 import { enumeration, pattern, schema, truthy } from '@geonovum/standards-checker/spectral/functions';
-import { publiccode05 } from '../../formats';
+import { publiccode07 } from '../../formats';
 
-export const PUBLICCODE_URI = 'https://yml.publiccode.tools/schema/0.5';
+export const PUBLICCODE_URI = 'https://yml.publiccode.tools/schema/0.7';
+const URI_PATTERN = '^[A-Za-z][A-Za-z0-9+.-]*:.+';
 
 const CATEGORIES = [
   'accounting',
@@ -129,7 +130,10 @@ const SOFTWARE_TYPES = [
 
 const MAINTENANCE_TYPES = ['internal', 'contract', 'community', 'none'];
 
-const PUBLICCODE_YML_VERSIONS = ['0', '0.2', '0.2.0', '0.2.1', '0.2.2', '0.3', '0.3.0', '0.4', '0.4.0', '0.5', '0.5.0'];
+const PUBLICCODE_YML_VERSIONS = ['0', '0.2', '0.2.0', '0.2.1', '0.2.2', '0.3', '0.3.0', '0.4', '0.4.0', '0.5', '0.5.0', '0.7', '0.7.0'];
+
+const SUPPORT_ALIASES = ['gdpr', 'eidas', 'nis2', 'cra', 'spid', 'cie', 'anpr', 'pagopa', 'io'];
+const SUPPORT_ALIAS_VALUES = SUPPORT_ALIASES.map(alias => `alias:${alias}`);
 
 const SCOPE_VALUES = [
   'agriculture',
@@ -159,8 +163,8 @@ const SCOPE_VALUES = [
 ];
 
 const publiccode: RulesetDefinition = {
-  description: 'publiccode.yml 0.5',
-  formats: [publiccode05],
+  description: 'publiccode.yml 0.7',
+  formats: [publiccode07],
   rules: {
     // --- Required top-level fields ---
     'publiccode-required-fields': {
@@ -322,10 +326,10 @@ const publiccode: RulesetDefinition = {
       then: {
         function: pattern,
         functionOptions: {
-          match: '^[A-Z]{2}$',
+          match: '^[A-Za-z]{2}$',
         },
       },
-      message: 'Country code "{{value}}" must be a two-letter uppercase ISO 3166-1 alpha-2 code.',
+      message: 'Country code "{{value}}" must be a two-letter ISO 3166-1 alpha-2 code.',
     },
 
     // --- intendedAudience.unsupportedCountries ---
@@ -335,10 +339,50 @@ const publiccode: RulesetDefinition = {
       then: {
         function: pattern,
         functionOptions: {
-          match: '^[A-Z]{2}$',
+          match: '^[A-Za-z]{2}$',
         },
       },
-      message: 'Country code "{{value}}" must be a two-letter uppercase ISO 3166-1 alpha-2 code.',
+      message: 'Country code "{{value}}" must be a two-letter ISO 3166-1 alpha-2 code.',
+    },
+
+    // --- supports ---
+    'publiccode-supports-required-fields': {
+      severity: 'error',
+      given: '$.supports[*]',
+      then: {
+        function: schema,
+        functionOptions: {
+          schema: {
+            required: ['id'],
+          },
+        },
+      },
+      message: 'Each `supports` entry must have an `id`.',
+    },
+
+    'publiccode-supports-id-format': {
+      severity: 'error',
+      given: '$.supports[*].id',
+      then: {
+        function: schema,
+        functionOptions: {
+          schema: {
+            oneOf: [
+              {
+                enum: SUPPORT_ALIAS_VALUES,
+              },
+              {
+                type: 'string',
+                pattern: URI_PATTERN,
+                not: {
+                  pattern: '^alias:',
+                },
+              },
+            ],
+          },
+        },
+      },
+      message: `\`supports.id\` must be a known alias (${SUPPORT_ALIAS_VALUES.join(', ')}) or a valid URI. Got "{{value}}".`,
     },
 
     // --- description ---
@@ -627,10 +671,10 @@ const publiccode: RulesetDefinition = {
       then: {
         function: pattern,
         functionOptions: {
-          match: '^https?://',
+          match: URI_PATTERN,
         },
       },
-      message: '`organisation.uri` must be a valid URL.',
+      message: '`organisation.uri` must be a valid URI.',
     },
 
     // --- fundedBy organisations ---

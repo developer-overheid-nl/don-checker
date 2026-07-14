@@ -37,7 +37,7 @@ const isPubliccodeDocument = (document: unknown): document is { publiccodeYmlVer
   return true;
 };
 
-export const publiccode05: FormatFn = document => {
+export const publiccode07: FormatFn = document => {
   if (!isPubliccodeDocument(document)) {
     return false;
   }
@@ -46,7 +46,7 @@ export const publiccode05: FormatFn = document => {
   return /^0\.?5?(\.0)?$/.test(version) || /^0(\.\d+)*$/.test(version);
 };
 
-(publiccode05 as FormatFn & { displayName?: string }).displayName = 'publiccode.yml';
+(publiccode07 as FormatFn & { displayName?: string }).displayName = 'publiccode.yml';
 export const oas3_1: FormatFn = document => {
   if (!isOas3Document(document)) {
     return false;
