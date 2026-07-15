@@ -6,6 +6,9 @@ softwareType: standalone/web
 platforms:
   - web
 developmentStatus: beta
+supports:
+  - id: alias:gdpr
+  - id: https://eur-lex.europa.eu/eli/reg/2016/679/oj
 description:
   nl:
     longDescription: |
