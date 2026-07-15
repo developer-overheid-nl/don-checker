@@ -1,4 +1,4 @@
-import type { Standard } from '@geonovum/standards-checker';
+import { yamlEncoding, type Standard } from '@geonovum/standards-checker';
 import adr20Example from './adr-20/example.json';
 import adr20Rulesets from './adr-20/rulesets';
 import adr21Example from './adr-21/example.json';
@@ -9,6 +9,9 @@ import publiccodeExample from './publiccode/example.json';
 import { publiccode05Rulesets, publiccode07Rulesets } from './publiccode/rulesets';
 
 const stringify = (value: unknown) => JSON.stringify(value, undefined, 2);
+// publiccode.yml is a YAML format: shipping its examples as YAML makes the
+// editor open in YAML mode (the UI derives the mode from the content).
+const stringifyYaml = (value: unknown) => yamlEncoding.stringify(value);
 
 // Versions are listed ascending (old -> new); the UI shows them reversed and
 // defaults to the latest final (2.1). Legacy slugs map each version back to its
@@ -31,7 +34,7 @@ const publiccode: Standard = {
       id: '0.5',
       label: '0.5',
       status: 'final',
-      example: stringify({ ...publiccodeExample, publiccodeYmlVersion: '0.5' }),
+      example: stringifyYaml({ ...publiccodeExample, publiccodeYmlVersion: '0.5' }),
       rulesets: publiccode05Rulesets,
       legacySlug: 'publiccode-05',
     },
@@ -39,7 +42,7 @@ const publiccode: Standard = {
       id: '0.7',
       label: '0.7',
       status: 'final',
-      example: stringify(publiccodeExample),
+      example: stringifyYaml(publiccodeExample),
       rulesets: publiccode07Rulesets,
       legacySlug: 'publiccode-07',
     },
