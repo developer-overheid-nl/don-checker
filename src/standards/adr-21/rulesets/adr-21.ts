@@ -5,7 +5,7 @@ import { oas3_0, oas3_1 } from '../../formats';
 import { or } from '../../functions';
 import { oasValidationRules } from '../../rules/oas-validation';
 
-export const ADR_URI = 'https://logius-standaarden.github.io/API-Design-Rules/2.1';
+export const ADR_URI = 'https://gitdocumentatie.logius.nl/publicatie/api/adr/2.1.0/';
 
 const adr21: RulesetDefinition = {
   description: 'NLGov REST API Design Rules',
