@@ -27,3 +27,16 @@ describe('publiccode standard', () => {
     }
   });
 });
+
+describe('examples', () => {
+  // The examples are raw-text fixtures, so nothing parses them at build time;
+  // guard here that each one is valid under its detected encoding.
+  test('every version ships an example that parses cleanly', () => {
+    for (const standard of standards) {
+      for (const version of standard.versions) {
+        const encoding = detectEncoding(version.example);
+        expect(encoding.parser.parse(version.example).diagnostics).toEqual([]);
+      }
+    }
+  });
+});
