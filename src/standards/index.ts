@@ -5,8 +5,8 @@ import adr21Example from './adr-21/example.json';
 import adr21Rulesets from './adr-21/rulesets';
 import oasExample from './oas/example.json';
 import oasRulesets from './oas/rulesets';
-import publiccodeExample from './publiccode-05/example.json';
-import publiccodeRulesets from './publiccode-05/rulesets';
+import publiccodeExample from './publiccode/example.json';
+import { publiccode05Rulesets, publiccode07Rulesets } from './publiccode/rulesets';
 
 const stringify = (value: unknown) => JSON.stringify(value, undefined, 2);
 
@@ -31,9 +31,17 @@ const publiccode: Standard = {
       id: '0.5',
       label: '0.5',
       status: 'final',
-      example: stringify(publiccodeExample),
-      rulesets: publiccodeRulesets,
+      example: stringify({ ...publiccodeExample, publiccodeYmlVersion: '0.5' }),
+      rulesets: publiccode05Rulesets,
       legacySlug: 'publiccode-05',
+    },
+    {
+      id: '0.7',
+      label: '0.7',
+      status: 'final',
+      example: stringify(publiccodeExample),
+      rulesets: publiccode07Rulesets,
+      legacySlug: 'publiccode-07',
     },
   ],
 };

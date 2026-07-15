@@ -4,7 +4,6 @@ import { publiccode05 as publiccode05Format, publiccode07 as publiccode07Format 
 
 export const PUBLICCODE_05_URI = 'https://yml.publiccode.tools/schema/0.5';
 export const PUBLICCODE_07_URI = 'https://yml.publiccode.tools/schema/0.7';
-export const PUBLICCODE_URI = PUBLICCODE_07_URI;
 const URI_PATTERN = '^[A-Za-z][A-Za-z0-9+.-]*:.+';
 
 const CATEGORIES = [
