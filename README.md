@@ -38,7 +38,7 @@ pnpm build:cli
 node dist/cli.mjs validate --ruleset adr-20 --input ./openapi.json
 ```
 
-Available rulesets: `adr-20`, `adr-21`, `adr`, `adr-consult`, `publiccode-05`.
+Available rulesets: `adr-20`, `adr-21`, `adr`, `adr-consult`, `publiccode-05`, `publiccode-07`.
 
 ### CLI flags
 

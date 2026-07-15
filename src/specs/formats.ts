@@ -43,10 +43,20 @@ export const publiccode05: FormatFn = document => {
   }
 
   const version = String((document as { publiccodeYmlVersion: unknown }).publiccodeYmlVersion);
-  return /^0\.?5?(\.0)?$/.test(version) || /^0(\.\d+)*$/.test(version);
+  return /^(?:0|0\.2(?:\.[0-2])?|0\.3(?:\.0)?|0\.4(?:\.0)?|0\.5(?:\.0)?)$/.test(version);
 };
 
 (publiccode05 as FormatFn & { displayName?: string }).displayName = 'publiccode.yml';
+
+export const publiccode07: FormatFn = document => {
+  if (!isPubliccodeDocument(document)) {
+    return false;
+  }
+
+  return /^0\.7(?:\.0)?$/.test(String((document as { publiccodeYmlVersion: unknown }).publiccodeYmlVersion));
+};
+
+(publiccode07 as FormatFn & { displayName?: string }).displayName = 'publiccode.yml';
 export const oas3_1: FormatFn = document => {
   if (!isOas3Document(document)) {
     return false;
