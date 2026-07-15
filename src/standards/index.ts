@@ -21,7 +21,7 @@ const apiDesignRules: Standard = {
   versions: [
     { id: '2.0.2', label: '2.0.2', status: 'final', example: adr20Example, rulesets: adr20Rulesets, legacySlug: 'adr-20' },
     { id: '2.1.0', label: '2.1.0', status: 'final', example: adr21Example, rulesets: adr21Rulesets, legacySlug: 'adr-21' },
-    { id: 'werkversie', label: 'Werkversie', status: 'draft', example: oasExample, rulesets: oasRulesets, legacySlug: 'adr' },
+    { id: 'werkversie', label: 'Werkversie', status: 'draft', example: oasExample, rulesets: oasRulesets, legacySlug: 'adr-werkversie' },
   ],
 };
 

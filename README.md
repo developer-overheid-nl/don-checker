@@ -42,15 +42,15 @@ node dist/cli.mjs validate --standard adr --input ./openapi.json
 
 Available standards:
 
-| Standard (`--standard`) | Versions (`--version`)         | Default | Legacy `--ruleset`               |
-| ----------------------- | ------------------------------ | ------- | -------------------------------- |
-| `adr`                   | `2.0.2`, `2.1.0`, `werkversie` | `2.1.0` | `adr-20`, `adr-21`, `adr`        |
-| `publiccode`            | `0.5`, `0.7`                   | `0.7`   | `publiccode-05`, `publiccode-07` |
+| Standard (`--standard`) | Versions (`--version`)         | Default | Legacy `--ruleset`                   |
+| ----------------------- | ------------------------------ | ------- | ------------------------------------ |
+| `adr`                   | `2.0.2`, `2.1.0`, `werkversie` | `2.1.0` | `adr-20`, `adr-21`, `adr-werkversie` |
+| `publiccode`            | `0.5`, `0.7`                   | `0.7`   | `publiccode-05`, `publiccode-07`     |
 
 `--version` is optional; omitting it selects the latest final version (for `adr`, that is `2.1.0`).
 The old `--ruleset <slug>` flag still works as a **deprecated** alias — it prints a warning on stderr
 and resolves the old slug to the same standard/version (e.g. `--ruleset adr-20` ==
-`--standard adr --version 2.0.2`; `--ruleset adr` == the `werkversie` draft).
+`--standard adr --version 2.0.2`; `--ruleset adr-werkversie` == the `werkversie` draft).
 
 ### CLI flags
 
