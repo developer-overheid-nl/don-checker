@@ -1,5 +1,18 @@
 # @developer-overheid-nl/don-checker
 
+## 1.1.0-beta.1
+
+### Patch Changes
+
+- 100b2bd: Rename the werkversie draft's legacy slug from `adr` to `adr-werkversie`, so the bare `adr` slug no longer shadows the standard itself: `/#/adr` and `--standard adr` now consistently resolve to the ADR standard's default version (`2.1.0`), and the deprecated `--ruleset adr-werkversie` alias (previously `--ruleset adr`) selects the werkversie draft.
+- b833f22: Ship the `publiccode` examples (all versions) as YAML instead of JSON, so opening the
+  publiccode.yml standard starts the editor in YAML mode
+  ([#55](https://github.com/developer-overheid-nl/don-checker/issues/55)). All examples
+  now load verbatim from their checked-in fixture files, so the ADR/OAS examples render
+  with the fixtures' own formatting (e.g. short arrays inline).
+- 100b2bd: Update `@geonovum/standards-checker` to the final `1.2.0` release (back to a
+  caret range now that the pre-release period is over).
+
 ## 1.1.0-beta.0
 
 ### Minor Changes

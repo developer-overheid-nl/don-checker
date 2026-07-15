@@ -5,7 +5,10 @@
     "@developer-overheid-nl/don-checker": "1.0.2"
   },
   "changesets": [
+    "adr-werkversie-legacy-slug",
     "multi-version-standards",
-    "publiccode-07"
+    "publiccode-07",
+    "publiccode-yaml-example",
+    "standards-checker-1-2-0"
   ]
 }
