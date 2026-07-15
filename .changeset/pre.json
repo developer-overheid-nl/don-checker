@@ -1,0 +1,11 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@developer-overheid-nl/don-checker": "1.0.2"
+  },
+  "changesets": [
+    "multi-version-standards",
+    "publiccode-07"
+  ]
+}
