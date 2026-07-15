@@ -1,4 +1,4 @@
-import { yamlEncoding, type Standard } from '@geonovum/standards-checker';
+import { jsonEncoding, yamlEncoding, type Standard } from '@geonovum/standards-checker';
 import adr20Example from './adr-20/example.json';
 import adr20Rulesets from './adr-20/rulesets';
 import adr21Example from './adr-21/example.json';
@@ -8,7 +8,7 @@ import oasRulesets from './oas/rulesets';
 import publiccodeExample from './publiccode/example.json';
 import { publiccode05Rulesets, publiccode07Rulesets } from './publiccode/rulesets';
 
-const stringify = (value: unknown) => JSON.stringify(value, undefined, 2);
+const stringifyJson = (value: unknown) => jsonEncoding.stringify(value);
 // publiccode.yml is a YAML format: shipping its examples as YAML makes the
 // editor open in YAML mode (the UI derives the mode from the content).
 const stringifyYaml = (value: unknown) => yamlEncoding.stringify(value);
@@ -20,9 +20,16 @@ const apiDesignRules: Standard = {
   name: 'API Design Rules',
   slug: 'adr',
   versions: [
-    { id: '2.0.2', label: '2.0.2', status: 'final', example: stringify(adr20Example), rulesets: adr20Rulesets, legacySlug: 'adr-20' },
-    { id: '2.1.0', label: '2.1.0', status: 'final', example: stringify(adr21Example), rulesets: adr21Rulesets, legacySlug: 'adr-21' },
-    { id: 'werkversie', label: 'Werkversie', status: 'draft', example: stringify(oasExample), rulesets: oasRulesets, legacySlug: 'adr' },
+    { id: '2.0.2', label: '2.0.2', status: 'final', example: stringifyJson(adr20Example), rulesets: adr20Rulesets, legacySlug: 'adr-20' },
+    { id: '2.1.0', label: '2.1.0', status: 'final', example: stringifyJson(adr21Example), rulesets: adr21Rulesets, legacySlug: 'adr-21' },
+    {
+      id: 'werkversie',
+      label: 'Werkversie',
+      status: 'draft',
+      example: stringifyJson(oasExample),
+      rulesets: oasRulesets,
+      legacySlug: 'adr',
+    },
   ],
 };
 
