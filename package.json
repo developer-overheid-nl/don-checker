@@ -35,18 +35,18 @@
   "prettier": "@geonovum/standards-checker/prettier",
   "dependencies": {
     "@geonovum/standards-checker": "1.2.0-beta.1",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
-    "react-router-dom": "^7.14.2"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.1"
   },
   "devDependencies": {
     "@changesets/cli": "^2.31.0",
-    "esbuild": "^0.28.0",
-    "eslint": "^10.2.1",
-    "prettier": "^3.8.3",
+    "esbuild": "^0.28.1",
+    "eslint": "^10.7.0",
+    "prettier": "^3.9.5",
     "typescript": "^6.0.3",
-    "vite": "^8.0.9",
-    "vitest": "^4.1.5"
+    "vite": "^8.1.4",
+    "vitest": "^4.1.10"
   },
   "overrides": {
     "@asyncapi/specs": "6.11.1"
