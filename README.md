@@ -105,6 +105,30 @@ Versioning, the changelog, and publishing are driven by [Changesets](https://cha
 
    `pnpm release` (`pnpm build && changeset publish`) publishes to npm locally if you need to bypass the workflow (it does not deploy Pages).
 
+#### Pre-releases
+
+To publish `-beta.N` prereleases before a final release, enter Changesets pre-release mode first; steps 2–3 above then produce prereleases until you exit:
+
+```bash
+pnpm changeset pre enter beta   # writes .changeset/pre.json — commit it
+```
+
+While in pre mode:
+
+- `pnpm version-packages` computes e.g. `1.1.0-beta.0`; running it again after new changesets land bumps to `-beta.1`, and so on. Final releases are blocked until you exit pre mode.
+- Tag and push as usual (`git tag v1.1.0-beta.0`). The publish workflow publishes any version containing a `-` under the npm dist-tag `beta`, so `latest` keeps pointing at the last final release.
+- Consumed `.changeset/*.md` files are **kept** (tracked in `.changeset/pre.json`) so the final release's changelog can aggregate them — don't delete them by hand.
+- The `-beta.N` counter is derived from the current `package.json` version — one more reason never to hand-edit `version`; a hand-set version shifts the counter.
+
+When the release is ready to go final, exit pre mode and version again:
+
+```bash
+pnpm changeset pre exit         # removes .changeset/pre.json
+pnpm version-packages           # computes the final version and cleans up the consumed changesets
+```
+
+Commit, tag (`v1.1.0`), and push — the same workflow now publishes under `latest`.
+
 ## License
 
 [EUPL-1.2](LICENSE)
