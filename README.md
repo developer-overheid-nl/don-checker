@@ -6,6 +6,8 @@ Validates OpenAPI specifications against the [API Design Rules](https://logius-s
 
 Built on [`@geonovum/standards-checker`](https://github.com/Geonovum/standards-checker); see its documentation for the validation engine, CLI toolkit, and web UI framework.
 
+Release notes are in [`CHANGELOG.md`](CHANGELOG.md); see [Versioning & releasing](#versioning--releasing) for how it is produced.
+
 **Demo:** https://developer-overheid-nl.github.io/don-checker/
 
 ## CLI
