@@ -1,3 +1,4 @@
+import { yamlEncoding } from '@geonovum/standards-checker';
 import { describe, expect, test } from 'vitest';
 import { PUBLICCODE_05_URI, PUBLICCODE_07_URI } from './publiccode/rulesets/publiccode';
 import standards from './index';
@@ -16,7 +17,7 @@ describe('publiccode standard', () => {
 
   test('ships an example matching each version', () => {
     for (const version of publiccode?.versions ?? []) {
-      expect(JSON.parse(version.example).publiccodeYmlVersion).toBe(version.id);
+      expect(yamlEncoding.parser.parse(version.example).data.publiccodeYmlVersion).toBe(version.id);
     }
   });
 });
