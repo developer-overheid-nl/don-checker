@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 import { createCli } from '@geonovum/standards-checker/cli';
-import plugins from './index';
+import standards from './standards';
 
-createCli({ name: 'don-checker', plugins });
+createCli({ name: 'don-checker', standards });

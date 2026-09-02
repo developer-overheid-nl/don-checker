@@ -5,7 +5,7 @@ import { adrWarnings } from '../../adr-warnings';
 export { ADR_DRAFT_URI };
 
 const adrDraft: RulesetDefinition = {
-  extends: [[adrDraftBase as RulesetDefinition, 'all']],
+  extends: [adrDraftBase as RulesetDefinition],
   rules: {
     ...adrWarnings,
   },

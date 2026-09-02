@@ -3,7 +3,12 @@
   "info": {
     "title": "API register API v1",
     "description": "API van het API register (apis.developer.overheid.nl)",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "contact": {
+      "name": "Kennisplatform APIs",
+      "url": "https://developer.overheid.nl",
+      "email": "developer.overheid@geonovum.nl"
+    }
   },
   "servers": [
     {
@@ -88,7 +93,7 @@
             "type": "string",
             "format": "uuid"
           },
-          "oas-uri": {
+          "oasUri": {
             "type": "string"
           },
           "docsUri": {
