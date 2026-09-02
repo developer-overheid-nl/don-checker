@@ -1,20 +1,10 @@
 import type { RulesetDefinition } from '@geonovum/standards-checker/spectral/core';
 import { enumeration, pattern, schema, truthy } from '@geonovum/standards-checker/spectral/functions';
+import { publiccode05 as publiccode05Format, publiccode07 as publiccode07Format } from '../../formats';
 
-export const PUBLICCODE_URI = 'https://yml.publiccode.tools/schema/0.5';
-
-type FormatFn = (document: unknown) => boolean;
-
-const isPubliccodeDocument = (document: unknown): document is { publiccodeYmlVersion: unknown } =>
-  typeof document === 'object' && document !== null && 'publiccodeYmlVersion' in document;
-
-const publiccode05: FormatFn = document => {
-  if (!isPubliccodeDocument(document)) return false;
-  const version = String(document.publiccodeYmlVersion);
-  return /^0\.?5?(\.0)?$/.test(version) || /^0(\.\d+)*$/.test(version);
-};
-
-(publiccode05 as FormatFn & { displayName?: string }).displayName = 'publiccode.yml';
+export const PUBLICCODE_05_URI = 'https://yml.publiccode.tools/schema/0.5';
+export const PUBLICCODE_07_URI = 'https://yml.publiccode.tools/schema/0.7';
+const URI_PATTERN = '^[A-Za-z][A-Za-z0-9+.-]*:.+';
 
 const CATEGORIES = [
   'accounting',
@@ -141,7 +131,11 @@ const SOFTWARE_TYPES = [
 
 const MAINTENANCE_TYPES = ['internal', 'contract', 'community', 'none'];
 
-const PUBLICCODE_YML_VERSIONS = ['0', '0.2', '0.2.0', '0.2.1', '0.2.2', '0.3', '0.3.0', '0.4', '0.4.0', '0.5', '0.5.0'];
+const PUBLICCODE_05_YML_VERSIONS = ['0', '0.2', '0.2.0', '0.2.1', '0.2.2', '0.3', '0.3.0', '0.4', '0.4.0', '0.5', '0.5.0'];
+const PUBLICCODE_07_YML_VERSIONS = [...PUBLICCODE_05_YML_VERSIONS, '0.7', '0.7.0'];
+
+const SUPPORT_ALIASES = ['gdpr', 'eidas', 'nis2', 'cra', 'spid', 'cie', 'anpr', 'pagopa', 'io'];
+const SUPPORT_ALIAS_VALUES = SUPPORT_ALIASES.map(alias => `alias:${alias}`);
 
 const SCOPE_VALUES = [
   'agriculture',
@@ -170,9 +164,21 @@ const SCOPE_VALUES = [
   'welfare',
 ];
 
-const publiccode: RulesetDefinition = {
-  description: 'publiccode.yml 0.5',
-  formats: [publiccode05],
+const publiccodeYmlVersionRule = (versions: string[]) => ({
+  severity: 'error' as const,
+  given: '$.publiccodeYmlVersion',
+  then: {
+    function: enumeration,
+    functionOptions: {
+      values: versions,
+    },
+  },
+  message: `\`publiccodeYmlVersion\` must be one of: ${versions.join(', ')}. Got "{{value}}".`,
+});
+
+export const publiccode07 = {
+  description: 'publiccode.yml 0.7',
+  formats: [publiccode07Format],
   rules: {
     // --- Required top-level fields ---
     'publiccode-required-fields': {
@@ -201,17 +207,7 @@ const publiccode: RulesetDefinition = {
     },
 
     // --- publiccodeYmlVersion ---
-    'publiccode-yml-version-enum': {
-      severity: 'error',
-      given: '$.publiccodeYmlVersion',
-      then: {
-        function: enumeration,
-        functionOptions: {
-          values: PUBLICCODE_YML_VERSIONS,
-        },
-      },
-      message: `\`publiccodeYmlVersion\` must be one of: ${PUBLICCODE_YML_VERSIONS.join(', ')}. Got "{{value}}".`,
-    },
+    'publiccode-yml-version-enum': publiccodeYmlVersionRule(PUBLICCODE_07_YML_VERSIONS),
 
     // --- name ---
     'publiccode-name-type': {
@@ -334,10 +330,10 @@ const publiccode: RulesetDefinition = {
       then: {
         function: pattern,
         functionOptions: {
-          match: '^[A-Z]{2}$',
+          match: '^[A-Za-z]{2}$',
         },
       },
-      message: 'Country code "{{value}}" must be a two-letter uppercase ISO 3166-1 alpha-2 code.',
+      message: 'Country code "{{value}}" must be a two-letter ISO 3166-1 alpha-2 code.',
     },
 
     // --- intendedAudience.unsupportedCountries ---
@@ -347,10 +343,50 @@ const publiccode: RulesetDefinition = {
       then: {
         function: pattern,
         functionOptions: {
-          match: '^[A-Z]{2}$',
+          match: '^[A-Za-z]{2}$',
         },
       },
-      message: 'Country code "{{value}}" must be a two-letter uppercase ISO 3166-1 alpha-2 code.',
+      message: 'Country code "{{value}}" must be a two-letter ISO 3166-1 alpha-2 code.',
+    },
+
+    // --- supports ---
+    'publiccode-supports-required-fields': {
+      severity: 'error',
+      given: '$.supports[*]',
+      then: {
+        function: schema,
+        functionOptions: {
+          schema: {
+            required: ['id'],
+          },
+        },
+      },
+      message: 'Each `supports` entry must have an `id`.',
+    },
+
+    'publiccode-supports-id-format': {
+      severity: 'error',
+      given: '$.supports[*].id',
+      then: {
+        function: schema,
+        functionOptions: {
+          schema: {
+            oneOf: [
+              {
+                enum: SUPPORT_ALIAS_VALUES,
+              },
+              {
+                type: 'string',
+                pattern: URI_PATTERN,
+                not: {
+                  pattern: '^alias:',
+                },
+              },
+            ],
+          },
+        },
+      },
+      message: `\`supports.id\` must be a known alias (${SUPPORT_ALIAS_VALUES.join(', ')}) or a valid URI. Got "{{value}}".`,
     },
 
     // --- description ---
@@ -639,10 +675,10 @@ const publiccode: RulesetDefinition = {
       then: {
         function: pattern,
         functionOptions: {
-          match: '^https?://',
+          match: URI_PATTERN,
         },
       },
-      message: '`organisation.uri` must be a valid URL.',
+      message: '`organisation.uri` must be a valid URI.',
     },
 
     // --- fundedBy organisations ---
@@ -660,6 +696,25 @@ const publiccode: RulesetDefinition = {
       message: 'Each `fundedBy` organisation must have a `uri`.',
     },
   },
+} satisfies RulesetDefinition;
+
+const {
+  'publiccode-supports-required-fields': _supportsRequiredFields,
+  'publiccode-supports-id-format': _supportsIdFormat,
+  ...publiccode05BaseRules
+} = publiccode07.rules;
+void _supportsRequiredFields;
+void _supportsIdFormat;
+
+const publiccode05Rules = {
+  ...publiccode05BaseRules,
+  'publiccode-yml-version-enum': publiccodeYmlVersionRule(PUBLICCODE_05_YML_VERSIONS),
 };
 
-export default publiccode;
+export const publiccode05: RulesetDefinition = {
+  description: 'publiccode.yml 0.5',
+  formats: [publiccode05Format],
+  rules: publiccode05Rules,
+};
+
+export default publiccode07;

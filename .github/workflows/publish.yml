@@ -21,9 +21,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: '24'
           cache: 'pnpm'
@@ -37,7 +37,10 @@ jobs:
             exit 1
           fi
       - run: pnpm install --frozen-lockfile
+      - run: pnpm dedupe --check
       - run: pnpm build
+      - run: pnpm lint
+      - run: pnpm test run
       - run: |
           VERSION=$(node -p "require('./package.json').version")
           if [[ "$VERSION" == *-* ]]; then
@@ -45,11 +48,15 @@ jobs:
           else
             pnpm publish --provenance --no-git-checks
           fi
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # Deploy the web UI to GitHub Pages only for final releases — a
+      # prerelease tag (any version containing a `-`) publishes to npm under
+      # the `beta` dist-tag but must not overwrite the live site.
       - uses: actions/configure-pages@v6
+        if: ${{ !contains(github.ref_name, '-') }}
       - uses: actions/upload-pages-artifact@v5
+        if: ${{ !contains(github.ref_name, '-') }}
         with:
           path: docs
       - uses: actions/deploy-pages@v5
+        if: ${{ !contains(github.ref_name, '-') }}
         id: deployment
