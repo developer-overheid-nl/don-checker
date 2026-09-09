@@ -1,6 +1,6 @@
 {
   "name": "@developer-overheid-nl/don-checker",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "packageManager": "pnpm@12.3.4",
   "license": "EUPL-1.2",
   "repository": {
