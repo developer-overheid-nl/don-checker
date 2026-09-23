@@ -1,0 +1,13 @@
+# @asyncapi/specs 6.11.2 was compromised; stay on 6.11.1.
+overrides:
+  '@asyncapi/specs': 6.11.1
+
+allowBuilds:
+  esbuild: true
+  '@scarf/scarf': false
+
+# These are first-party, so they are exempt from the 24 hour minimumReleaseAge
+# that pnpm applies to third-party releases.
+minimumReleaseAgeExclude:
+  - '@geonovum/standards-checker'
+  - '@developer-overheid-nl/adr-rulesets'
