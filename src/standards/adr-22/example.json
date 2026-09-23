@@ -1,0 +1,160 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API register API v1",
+    "description": "API van het API register (apis.developer.overheid.nl)",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.developer.overheid.nl/v1",
+      "description": "Production"
+    }
+  ],
+  "tags": [
+    {
+      "name": "API's",
+      "description": "Alle API operaties die horen bij API's."
+    }
+  ],
+  "paths": {
+    "/apis": {
+      "get": {
+        "operationId": "listApis",
+        "description": "Alle API's ophalen",
+        "summary": "Alle API's ophalen",
+        "tags": ["API's"],
+        "responses": {
+          "200": {
+            "headers": {
+              "API-Version": {
+                "$ref": "https://static.developer.overheid.nl/adr/components.yaml#/headers/API-Version"
+              },
+              "Link": {
+                "$ref": "https://static.developer.overheid.nl/adr/components.yaml#/headers/Link"
+              }
+            },
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Api"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/id"
+        }
+      ],
+      "get": {
+        "operationId": "retrieveApi",
+        "description": "API ophalen",
+        "summary": "API ophalen",
+        "tags": ["API's"],
+        "responses": {
+          "200": {
+            "headers": {
+              "API-Version": {
+                "$ref": "https://static.developer.overheid.nl/adr/components.yaml#/headers/API-Version"
+              }
+            },
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Api"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "https://static.developer.overheid.nl/adr/components.yaml#/responses/404"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Api": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "oas-uri": {
+            "type": "string"
+          },
+          "docsUri": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "auth": {
+            "type": "string"
+          },
+          "adrScore": {
+            "type": "string"
+          },
+          "repositoryUri": {
+            "type": "string"
+          },
+          "contactName": {
+            "type": "string"
+          },
+          "contactEmail": {
+            "type": "string"
+          },
+          "contactUrl": {
+            "type": "string"
+          },
+          "organisation": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "uri": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          },
+          "servers": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "uri": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "id": {
+        "name": "id",
+        "in": "path",
+        "description": "id",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

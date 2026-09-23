@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.0",
+    "@developer-overheid-nl/adr-rulesets": "^0.0.2",
     "esbuild": "^0.28.2",
     "eslint": "^10.8.0",
     "prettier": "^3.9.6",
