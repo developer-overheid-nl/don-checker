@@ -25,6 +25,18 @@ npx @developer-overheid-nl/don-checker@latest validate --standard adr --version 
 cat openapi.json | npx @developer-overheid-nl/don-checker@latest validate --standard adr
 ```
 
+### Validate publiccode.yml
+```bash
+# From a local file (ADR, default version 2.1.0)
+npx @developer-overheid-nl/don-checker@latest validate --standard publiccode --input ./publiccode.yml
+
+# Pin a specific version
+npx @developer-overheid-nl/don-checker@latest validate --standard publiccode --version 0.7 --input ./publiccode.yml
+
+# From stdin
+cat ./publiccode.yml | npx @developer-overheid-nl/don-checker@latest validate --standard publiccode
+```
+
 ### Install globally
 
 ```bash
