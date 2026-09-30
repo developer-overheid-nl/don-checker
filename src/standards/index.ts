@@ -6,6 +6,8 @@ import adr20Example from './adr-20/example.json?raw';
 import adr20Rulesets from './adr-20/rulesets';
 import adr21Example from './adr-21/example.json?raw';
 import adr21Rulesets from './adr-21/rulesets';
+import adr22Example from './adr-22/example.json?raw';
+import adr22Rulesets from './adr-22/rulesets';
 import oasExample from './oas/example.json?raw';
 import oasRulesets from './oas/rulesets';
 import publiccode05Example from './publiccode/example-0.5.yaml?raw';
@@ -21,6 +23,7 @@ const apiDesignRules: Standard = {
   versions: [
     { id: '2.0.2', label: '2.0.2', status: 'final', example: adr20Example, rulesets: adr20Rulesets, legacySlug: 'adr-20' },
     { id: '2.1.0', label: '2.1.0', status: 'final', example: adr21Example, rulesets: adr21Rulesets, legacySlug: 'adr-21' },
+    { id: '2.2.0', label: '2.2.0', status: 'final', example: adr22Example, rulesets: adr22Rulesets, legacySlug: 'adr-22' },
     { id: 'werkversie', label: 'Werkversie', status: 'draft', example: oasExample, rulesets: oasRulesets, legacySlug: 'adr-werkversie' },
   ],
 };

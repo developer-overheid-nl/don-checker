@@ -1,3 +1,5 @@
+// The OpenAPI formats live in @developer-overheid-nl/adr-rulesets; only the
+// publiccode.yml formats are still defined here.
 type FormatFn = (document: unknown) => boolean;
 
 const isPlainObject = (value: unknown): value is Record<string, unknown> => {
@@ -8,26 +10,6 @@ const isPlainObject = (value: unknown): value is Record<string, unknown> => {
   const prototype = Object.getPrototypeOf(value);
   return prototype === null || prototype === Object.prototype;
 };
-
-const isOas3Document = (document: unknown): document is { openapi: unknown } => {
-  if (!isPlainObject(document) || !('openapi' in document)) {
-    return false;
-  }
-
-  const major = Number.parseInt(String((document as { openapi: unknown }).openapi), 10);
-
-  return Number.isInteger(major) && major === 3;
-};
-
-export const oas3_0: FormatFn = document => {
-  if (!isOas3Document(document)) {
-    return false;
-  }
-
-  return /^3\.0(?:\.[0-9]*)?$/.test(String((document as { openapi: unknown }).openapi));
-};
-
-(oas3_0 as FormatFn & { displayName?: string }).displayName = 'OpenAPI 3.0.x';
 
 const isPubliccodeDocument = (document: unknown): document is { publiccodeYmlVersion: unknown } => {
   if (!isPlainObject(document) || !('publiccodeYmlVersion' in document)) {
@@ -57,12 +39,3 @@ export const publiccode07: FormatFn = document => {
 };
 
 (publiccode07 as FormatFn & { displayName?: string }).displayName = 'publiccode.yml';
-export const oas3_1: FormatFn = document => {
-  if (!isOas3Document(document)) {
-    return false;
-  }
-
-  return /^3\.1(?:\.[0-9]*)?$/.test(String((document as { openapi: unknown }).openapi));
-};
-
-(oas3_1 as FormatFn & { displayName?: string }).displayName = 'OpenAPI 3.1.x';
