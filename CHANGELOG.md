@@ -1,5 +1,28 @@
 # @developer-overheid-nl/don-checker
 
+## 1.3.0
+
+### Minor Changes
+
+- 15ff618: Add API Design Rules 2.2.0. It is a final version, so it becomes the default for `--standard adr`
+  without `--version` and in the web UI. Pass `--version 2.1.0` to keep validating against 2.1.0.
+
+  The ADR rulesets now follow the linter files Logius publishes per version, so 2.0.2, 2.1.0 and the
+  werkversie report different diagnostics than before. For example, 2.1.0 now requires a `/openapi.json`
+  path and rejects OpenAPI 3.1 documents, 2.0.2 and 2.1.0 warn about rules that become errors in a later
+  version, and werkversie rule codes carry an `nlgov:` prefix.
+
+- f89b9c6: Added publiccode.yml examples to the readme.md
+- 3ff156d: ADR rules are now imported from an external npm package.
+
+### Patch Changes
+
+- a595ef6: Add a `Dockerfile` with two targets: `cli` (the default) runs the `don-checker` CLI on a distroless,
+  non-root Node image, and `web` serves the web UI with Caddy as a non-root user. See the README's
+  "Docker" section for build and run commands.
+- cc6d3a4: Update `@geonovum/standards-checker` to 1.4.1. It builds the CLI bundle with tsdown 0.23 and keeps its
+  `spectral/rulesets` entry, which the CLI loads at runtime, importable in Node.
+
 ## 1.2.1
 
 ### Patch Changes
