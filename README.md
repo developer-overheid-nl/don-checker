@@ -77,6 +77,45 @@ and resolves the old slug to the same standard/version (e.g. `--ruleset adr-20` 
 
 Exit codes: `0` = pass, `1` = failed per `--fail-on` policy, `>1` = unexpected error.
 
+## Docker
+
+The repository ships a `Dockerfile` with two targets built from the same sources:
+
+- `cli` (default): the `don-checker` CLI on a distroless, non-root Node image.
+- `web`: the web UI as static files served by [Caddy](https://caddyserver.com/), running as a
+  non-root user.
+
+### CLI
+
+```bash
+docker build --target cli -t don-checker .
+
+# Help
+docker run --rm don-checker --help
+
+# Validate a local file (mount it into the container)
+docker run --rm -v "$PWD/openapi.json:/data/openapi.json:ro" \
+  don-checker validate --standard adr --input /data/openapi.json
+
+# Validate from a URL
+docker run --rm don-checker \
+  validate --standard adr --input https://example.com/openapi.json
+
+# Validate from stdin
+cat publiccode.yml | docker run --rm -i don-checker validate --standard publiccode
+```
+
+### Web UI
+
+```bash
+docker build --target web -t don-checker-web .
+docker run --rm -p 8080:8080 don-checker-web
+# then open http://localhost:8080/
+```
+
+The listening port inside the container is `8080`; override it with `-e PORT=<port>` and adjust the
+`-p` mapping accordingly (e.g. `-e PORT=9090 -p 9090:9090`).
+
 ## Development
 
 ### Prerequisites
