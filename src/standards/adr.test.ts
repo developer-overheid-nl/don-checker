@@ -15,7 +15,8 @@ describe('adr standard', () => {
     }
   });
 
-  test('keeps the legacy slugs', () => {
+  test('derives the labels and the legacy slugs of the existing versions', () => {
+    expect(apiDesignRules.versions.map(version => version.label)).toEqual(['2.0.2', '2.1.0', '2.2.0', 'Werkversie']);
     expect(apiDesignRules.versions.map(version => version.legacySlug)).toEqual(['adr-20', 'adr-21', 'adr-22', 'adr-werkversie']);
   });
 
