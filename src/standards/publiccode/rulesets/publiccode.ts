@@ -1,5 +1,5 @@
-import type { RulesetDefinition } from '@geonovum/standards-checker/spectral/core';
-import { enumeration, pattern, schema, truthy } from '@geonovum/standards-checker/spectral/functions';
+import type { RulesetDefinition } from '@geonovum/standards-checker/openlint/core';
+import { enumeration, pattern, schema, truthy } from '@geonovum/standards-checker/openlint/functions';
 import { publiccode05 as publiccode05Format, publiccode07 as publiccode07Format } from '../../formats';
 
 export const PUBLICCODE_05_URI = 'https://yml.publiccode.tools/schema/0.5';

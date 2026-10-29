@@ -1,4 +1,4 @@
-import { pattern } from '@geonovum/standards-checker/spectral/functions';
+import { pattern } from '@geonovum/standards-checker/openlint/functions';
 
 export const adrWarnings = {
   'oas3_1-warning': {
