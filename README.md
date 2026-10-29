@@ -121,7 +121,7 @@ The listening port inside the container is `8080`; override it with `-e PORT=<po
 
 ### Prerequisites
 
-- Node.js 24+
+- Node.js 22.18+ or 24+
 - pnpm 10+
 
 ### Setup
