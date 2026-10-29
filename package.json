@@ -34,8 +34,8 @@
   },
   "prettier": "@geonovum/standards-checker/prettier",
   "dependencies": {
-    "@developer-overheid-nl/adr-rulesets": "^0.1.1",
-    "@geonovum/standards-checker": "^1.4.1",
+    "@developer-overheid-nl/adr-rulesets": "^0.2.0",
+    "@geonovum/standards-checker": "^1.5.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.2"

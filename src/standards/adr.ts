@@ -1,6 +1,6 @@
 import { adrVersions, type AdrVersion, type AdrVersionId } from '@developer-overheid-nl/adr-rulesets/versions';
 import type { Standard } from '@geonovum/standards-checker';
-import type { RulesetDefinition } from '@geonovum/standards-checker/spectral/core';
+import type { RulesetDefinition } from '@geonovum/standards-checker/openlint/core';
 import adr20Example from './adr-20/example.json?raw';
 import adr21Example from './adr-21/example.json?raw';
 import adr22Example from './adr-22/example.json?raw';

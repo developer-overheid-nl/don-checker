@@ -1,5 +1,5 @@
 import { adrVersions } from '@developer-overheid-nl/adr-rulesets/versions';
-import { Spectral } from '@geonovum/standards-checker/spectral/core';
+import { OpenLint } from '@geonovum/standards-checker/openlint/core';
 import { describe, expect, test } from 'vitest';
 import apiDesignRules from './adr';
 
@@ -22,10 +22,10 @@ describe('adr standard', () => {
 
   test('2.0.2 example document produces no errors', async () => {
     const version = apiDesignRules.versions.find(candidate => candidate.id === '2.0.2');
-    const spectral = new Spectral();
-    spectral.setRuleset(Object.values(version?.rulesets ?? {})[0]);
+    const openLint = new OpenLint();
+    openLint.setRuleset(Object.values(version?.rulesets ?? {})[0]);
 
-    const violations = await spectral.run(version?.example ?? '');
+    const violations = await openLint.run(version?.example ?? '');
     expect(violations.filter(violation => violation.severity === 0)).toHaveLength(0);
   });
 });
