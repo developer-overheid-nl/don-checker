@@ -41,7 +41,7 @@ const apiDesignRules: Standard = {
   versions: adrVersions.map(version => ({
     id: version.id,
     status: version.status,
-    rulesets: { [version.uri]: withAdrWarnings(version.ruleset as RulesetDefinition) },
+    rulesets: { [version.uri]: withAdrWarnings(version.ruleset) },
     label: label(version),
     example: adrExamples[version.id],
     legacySlug: legacySlug(version),

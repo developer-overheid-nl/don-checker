@@ -4,7 +4,6 @@ overrides:
 
 allowBuilds:
   esbuild: true
-  '@scarf/scarf': false
 
 # These are first-party, so they are exempt from the 24 hour minimumReleaseAge
 # that pnpm applies to third-party releases.

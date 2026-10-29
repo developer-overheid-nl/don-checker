@@ -10,3 +10,5 @@ import from `@geonovum/standards-checker/openlint/*` instead of the deprecated `
 ADR 2.1.0 keeps the inherited OAS rules switched on, and those now come from OpenLint: they link to
 `https://docs.openlint.org/reference/openapi-rules`, and two rules change slightly (`operation-operationId-valid-in-url`
 has a reworded message, and `duplicated-entry-in-enum` matches fewer nodes).
+
+don-checker now requires Node `^22.18 || >=24.0`, which drops Node 23, matching OpenLint and adr-rulesets 0.2.
