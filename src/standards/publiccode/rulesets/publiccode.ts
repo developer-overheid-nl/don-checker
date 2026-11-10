@@ -1,9 +1,10 @@
 import type { RulesetDefinition } from '@geonovum/standards-checker/openlint/core';
 import { enumeration, pattern, schema, truthy } from '@geonovum/standards-checker/openlint/functions';
-import { publiccode05 as publiccode05Format, publiccode07 as publiccode07Format } from '../../formats';
+import { publiccode05 as publiccode05Format, publiccode07 as publiccode07Format, publiccode08 as publiccode08Format } from '../../formats';
 
 export const PUBLICCODE_05_URI = 'https://yml.publiccode.tools/schema/0.5';
 export const PUBLICCODE_07_URI = 'https://yml.publiccode.tools/schema/0.7';
+export const PUBLICCODE_08_URI = 'https://yml.publiccode.tools/schema/0.8';
 const URI_PATTERN = '^[A-Za-z][A-Za-z0-9+.-]*:.+';
 
 const CATEGORIES = [
@@ -133,6 +134,7 @@ const MAINTENANCE_TYPES = ['internal', 'contract', 'community', 'none'];
 
 const PUBLICCODE_05_YML_VERSIONS = ['0', '0.2', '0.2.0', '0.2.1', '0.2.2', '0.3', '0.3.0', '0.4', '0.4.0', '0.5', '0.5.0'];
 const PUBLICCODE_07_YML_VERSIONS = [...PUBLICCODE_05_YML_VERSIONS, '0.7', '0.7.0'];
+const PUBLICCODE_08_YML_VERSIONS = [...PUBLICCODE_07_YML_VERSIONS, '0.8', '0.8.0'];
 
 const SUPPORT_ALIASES = ['gdpr', 'eidas', 'nis2', 'cra', 'spid', 'cie', 'anpr', 'pagopa', 'io'];
 const SUPPORT_ALIAS_VALUES = SUPPORT_ALIASES.map(alias => `alias:${alias}`);
@@ -717,4 +719,13 @@ export const publiccode05: RulesetDefinition = {
   rules: publiccode05Rules,
 };
 
-export default publiccode07;
+export const publiccode08: RulesetDefinition = {
+  description: 'publiccode.yml 0.8',
+  formats: [publiccode08Format],
+  rules: {
+    ...publiccode07.rules,
+    'publiccode-yml-version-enum': publiccodeYmlVersionRule(PUBLICCODE_08_YML_VERSIONS),
+  },
+};
+
+export default publiccode08;

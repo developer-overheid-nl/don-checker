@@ -39,3 +39,13 @@ export const publiccode07: FormatFn = document => {
 };
 
 (publiccode07 as FormatFn & { displayName?: string }).displayName = 'publiccode.yml';
+
+export const publiccode08: FormatFn = document => {
+  if (!isPubliccodeDocument(document)) {
+    return false;
+  }
+
+  return /^0\.8(?:\.0)?$/.test(String((document as { publiccodeYmlVersion: unknown }).publiccodeYmlVersion));
+};
+
+(publiccode08 as FormatFn & { displayName?: string }).displayName = 'publiccode.yml';

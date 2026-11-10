@@ -1,4 +1,4 @@
-publiccodeYmlVersion: "0.7"
+publiccodeYmlVersion: "0.8"
 name: DON Checker
 url: https://github.com/developer-overheid-nl/don-checker
 landingURL: https://developer-overheid-nl.github.io/don-checker/
@@ -15,8 +15,6 @@ developmentStatus: development
 intendedAudience:
   countries:
     - NL
-  scope:
-    - government
 
 description:
   nl:

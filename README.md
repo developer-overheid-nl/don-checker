@@ -6,7 +6,7 @@ Validates OpenAPI specifications against the [API Design Rules](https://logius-s
 
 Built on [`@geonovum/standards-checker`](https://github.com/Geonovum/standards-checker); see its documentation for the validation engine, CLI toolkit, and web UI framework.
 
-Release notes are in [`CHANGELOG.md`](CHANGELOG.md); see [Versioning & releasing](#versioning--releasing) for how it is produced.
+Release notes are in [`CHANGELOG.md`](CHANGELOG.md); see [Versioning & releasing](#versioning--releasing) for how it is produced. Maintenance how-tos (e.g. adding a new publiccode.yml version) live in [`MAINTENANCE.md`](MAINTENANCE.md).
 
 **Demo:** https://developer-overheid-nl.github.io/don-checker/
 
@@ -28,11 +28,11 @@ cat openapi.json | npx @developer-overheid-nl/don-checker@latest validate --stan
 ### Validate publiccode.yml
 
 ```bash
-# From a local file (publiccode, default version 0.7)
+# From a local file (publiccode, default version 0.8)
 npx @developer-overheid-nl/don-checker@latest validate --standard publiccode --input ./publiccode.yml
 
 # Pin a specific version
-npx @developer-overheid-nl/don-checker@latest validate --standard publiccode --version 0.7 --input ./publiccode.yml
+npx @developer-overheid-nl/don-checker@latest validate --standard publiccode --version 0.8 --input ./publiccode.yml
 
 # From stdin
 cat ./publiccode.yml | npx @developer-overheid-nl/don-checker@latest validate --standard publiccode
@@ -55,10 +55,10 @@ node dist/cli.mjs validate --standard adr --input ./openapi.json
 
 Available standards:
 
-| Standard (`--standard`) | Versions (`--version`)                  | Default | Legacy `--ruleset`                             |
-| ----------------------- | --------------------------------------- | ------- | ---------------------------------------------- |
-| `adr`                   | `2.0.2`, `2.1.0`, `2.2.0`, `werkversie` | `2.2.0` | `adr-20`, `adr-21`, `adr-22`, `adr-werkversie` |
-| `publiccode`            | `0.5`, `0.7`                            | `0.7`   | `publiccode-05`, `publiccode-07`               |
+| Standard (`--standard`) | Versions (`--version`)                  | Default | Legacy `--ruleset`                                |
+| ----------------------- | --------------------------------------- | ------- | ------------------------------------------------- |
+| `adr`                   | `2.0.2`, `2.1.0`, `2.2.0`, `werkversie` | `2.2.0` | `adr-20`, `adr-21`, `adr-22`, `adr-werkversie`    |
+| `publiccode`            | `0.5`, `0.7`, `0.8`                     | `0.8`   | `publiccode-05`, `publiccode-07`, `publiccode-08` |
 
 `--version` is optional; omitting it selects the latest final version (for `adr`, that is `2.2.0`).
 The old `--ruleset <slug>` flag still works as a **deprecated** alias — it prints a warning on stderr
