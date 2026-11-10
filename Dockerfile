@@ -12,7 +12,7 @@
 ########################################
 # Build CLI + web bundle
 ########################################
-FROM node:24.22.2-bookworm-slim@sha256:c86ecead9e55a5210ac1727de38a4ca840bf03dcaf34dc9749addbf383b1920c AS build
+FROM node:24.22.2-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9 AS build
 
 # Enable the pnpm version pinned in package.json ("packageManager").
 RUN corepack enable
@@ -38,7 +38,7 @@ RUN pnpm prune --prod
 ########################################
 # Web UI: static files served by Caddy
 ########################################
-FROM caddy:2.11.7-alpine@sha256:e70b164da81ef698b3ad19af799ea6086ce6d9e48ed4079eb9fe26f6fbf14ee5 AS web
+FROM caddy:2.11.9-alpine@sha256:0bbb055bda6793c999bde78b1b5ce3e89f829fb031af2cf50056ea1246559fee AS web
 
 # The UI routes on the URL hash, so any other path is redirected to the root
 # (a missing asset stays a 404). The admin API and config persistence are
