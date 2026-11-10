@@ -5,7 +5,8 @@ import apiDesignRules from './adr';
 // YAML mode (the UI derives its mode from the content).
 import publiccode05Example from './publiccode/example-0.5.yaml?raw';
 import publiccode07Example from './publiccode/example-0.7.yaml?raw';
-import { publiccode05Rulesets, publiccode07Rulesets } from './publiccode/rulesets';
+import publiccode08Example from './publiccode/example-0.8.yaml?raw';
+import { publiccode05Rulesets, publiccode07Rulesets, publiccode08Rulesets } from './publiccode/rulesets';
 
 const publiccode: Standard = {
   name: 'publiccode.yml',
@@ -26,6 +27,14 @@ const publiccode: Standard = {
       example: publiccode07Example,
       rulesets: publiccode07Rulesets,
       legacySlug: 'publiccode-07',
+    },
+    {
+      id: '0.8',
+      label: '0.8',
+      status: 'final',
+      example: publiccode08Example,
+      rulesets: publiccode08Rulesets,
+      legacySlug: 'publiccode-08',
     },
   ],
 };

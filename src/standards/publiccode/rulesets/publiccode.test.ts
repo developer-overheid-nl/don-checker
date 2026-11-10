@@ -1,10 +1,13 @@
 import { OpenLint } from '@geonovum/standards-checker/openlint/core';
 import { describe, expect, test } from 'vitest';
-import { publiccode07 } from '../../formats';
-import ruleset from './publiccode';
+import { publiccode07, publiccode08 } from '../../formats';
+import { publiccode07 as publiccode07Ruleset, publiccode08 as publiccode08Ruleset } from './publiccode';
 
-const openLint = new OpenLint();
-openLint.setRuleset(ruleset);
+const openLint07 = new OpenLint();
+openLint07.setRuleset(publiccode07Ruleset);
+
+const openLint08 = new OpenLint();
+openLint08.setRuleset(publiccode08Ruleset);
 
 const validPubliccode07Document = {
   publiccodeYmlVersion: '0.7',
@@ -42,14 +45,14 @@ describe('publiccode.yml 0.7', () => {
   });
 
   test('accepts valid supports aliases and URIs', async () => {
-    const violations = await openLint.run(validPubliccode07Document);
+    const violations = await openLint07.run(validPubliccode07Document);
     const errors = violations.filter(v => v.severity === 0);
 
     expect(errors).toHaveLength(0);
   });
 
   test('rejects unknown supports aliases', async () => {
-    const violations = await openLint.run({
+    const violations = await openLint07.run({
       ...validPubliccode07Document,
       supports: [{ id: 'alias:unknown' }],
     });
@@ -65,7 +68,7 @@ describe('publiccode.yml 0.7', () => {
   });
 
   test('accepts URNs as organisation identifiers', async () => {
-    const violations = await openLint.run({
+    const violations = await openLint07.run({
       ...validPubliccode07Document,
       organisation: {
         uri: 'urn:x-italian-pa:c_h501',
@@ -78,13 +81,31 @@ describe('publiccode.yml 0.7', () => {
   });
 
   test('accepts deprecated lowercase country codes', async () => {
-    const violations = await openLint.run({
+    const violations = await openLint07.run({
       ...validPubliccode07Document,
       intendedAudience: {
         countries: ['it'],
         unsupportedCountries: ['us'],
       },
     });
+    const errors = violations.filter(v => v.severity === 0);
+
+    expect(errors).toHaveLength(0);
+  });
+});
+
+describe('publiccode.yml 0.8', () => {
+  const validPubliccode08Document = {
+    ...validPubliccode07Document,
+    publiccodeYmlVersion: '0.8',
+  };
+
+  test('matches publiccode.yml 0.8 documents', () => {
+    expect(publiccode08(validPubliccode08Document)).toBe(true);
+  });
+
+  test('accepts a valid 0.8 document', async () => {
+    const violations = await openLint08.run(validPubliccode08Document);
     const errors = violations.filter(v => v.severity === 0);
 
     expect(errors).toHaveLength(0);
