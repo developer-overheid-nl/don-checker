@@ -1,7 +1,7 @@
 {
   "name": "@developer-overheid-nl/don-checker",
   "version": "1.5.0",
-  "packageManager": "pnpm@12.21.0",
+  "packageManager": "pnpm@12.23.0",
   "license": "EUPL-1.2",
   "repository": {
     "type": "git",
